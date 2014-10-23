@@ -1,0 +1,34 @@
+/*
+Paul Karcher
+paulk460@gmail.com
+Sep 10, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description: Stylesheet for the text formatting involved in assignment 5.
+Kept 
+*/
+
+/*p
+{
+    text-indent: 50px;
+}*/
+
+.title
+{
+    text-decoration: underline;
+}
+
+
+/* additional minor header refinements */
+.locationLabel {
+  font-style : italic ;
+}
+
+
+
+.verse
+{
+    font-style: italic;
+    text-align: center;
+    line-height: 1.1;
+    margin: 40px 50px 40px 50px;
+}
