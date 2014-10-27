@@ -9,8 +9,8 @@
 // N.B.  This version *does* apply the CSS.
 // N.B.  This version *does* apply the CSS.
 $(document).ready(function () {
-    $("#multi-table td:nth-child(1)").addClass("multiple");
-    $("#multi-table tr:nth-child(1)").addClass("multiple");
+    $("#multi-table td:nth-child(1)").addClass("multiplicand");
+    $("#multi-table tr:nth-child(1)").addClass("multiplicand");
     analyseInput();
 });
 
@@ -69,10 +69,10 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
 
     $("#multi-table").html(strContent);
 
-    $("#multi-table tr:nth-child(1)").addClass("multiple");
+    $("#multi-table tr:nth-child(1)").addClass("multiplicand");
 
 
-    $("#multi-table td:nth-child(1)").addClass("multiple");
+    $("#multi-table td:nth-child(1)").addClass("multiplicand");
 
 
 

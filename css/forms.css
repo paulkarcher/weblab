@@ -33,7 +33,7 @@ span[id^="error"] {
     border: 1px solid red;
 }
 
-.multiple {
+.multiplicand {
     background: lightblue;
     font-weight: bold;
 }
