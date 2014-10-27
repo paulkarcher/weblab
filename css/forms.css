@@ -13,7 +13,6 @@ Description:Stylesheet for html5 forms
     /*border: solid black 1px;*/
     padding-left: 5px;
     padding-right: 5px;
-    //width: 75%;
 }
 
 
@@ -29,14 +28,7 @@ Description:Stylesheet for html5 forms
     width: 400px;
 }
 
-.form-input td
-{
-}
 
-.form-input div
-{
-    //padding-bottom: 50px;
-}
 
 span[id^="error"]
 {
