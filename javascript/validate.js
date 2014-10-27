@@ -30,7 +30,6 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     strContent += "<table>" +
             "<tr>" +
             "<td>&nbsp</td>";
-    "</tr>";
 
     for (var row = 0; row <= rowEnd - rowStart; row++)
     {
@@ -71,11 +70,11 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     $("#multi-table").html(strContent);
 
     $("#multi-table tr:nth-child(1)").addClass("multiple");
-    
-    
+
+
     $("#multi-table td:nth-child(1)").addClass("multiple");
-    
-    
+
+
 
 
 
