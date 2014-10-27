@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+Paul Karcher
+paulk460@gmail.com
+October 7, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description:Home page for site.
+-->
+<html lang ="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/main.css" rel="stylesheet" type="text/css">
+    <link href="../../css/textformatting.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <!--
+      load jQuery library from the Google Content Delivery Network (CDN)
+      see http://encosia.com/3-reasons-why-you-should-let-google-host-jquery-for-you/
+      however, note that you obviously must be online for this to work
+      alternatively, you can download jQuery and store it locally from
+         http://jquery.com/download/
+    -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- Jesse Heines' code taken verbatim from the assignment 5 page
+    https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/FormattingText-v04.jsp
+    and is used to handle the json file.
+    -->
+    <!-- load the JSON file containing the text of Lincoln's Gettysburg address -->
+    <script type="text/javascript">
+      var story;
+
+      // Note to advanced students:
+      //   Do *NOT* use the jQuery getJSON function here, because in this
+      // application the AJAX call has to be synchronous (that is, we need to
+      // wait for it to be done before continuing), and the getJSON function
+      // is always asynchronous.  Reference:
+      // http://stackoverflow.com/questions/2765411/is-it-possible-to-set-asyncfalse-to-getjson-call
+      //   The other approach is to change the global jQuery ajaxSetup option,
+      // but this is controversial, as discussed on the referenced page.
+      jQuery.ajax({
+        async: false,
+        dataType: "json",
+        url: "newjson.json",
+        success: function(data) {
+          story = data;
+        }
+      });
+
+      $(document).ready(function() {
+        placeContent();
+      });
+    </script>
+    <!-- script to place JSON text in the placeholder on this page -->
+    <script type="text/javascript">
+      // N.B.  This version *does* apply the CSS.
+      function placeContent() {
+        var strContent = "";
+
+        // create dynamic content from JSON
+        strContent += "<h1 class='title'>" + story.title + "</h1>";
+        strContent += "<h2 class='author'>by " + story.author + "</h2>";
+        strContent += "<h2 class='authorsTitle'>" + story.authorsTitle + "</h2>";
+        strContent += "<h3 class='locationLabel'>delivered at:</h3>";
+        strContent += "<h3 class='location'>" + story.location + "</h3>";
+        strContent += "<h3 class='date'>" + story.date + "</h3>";
+
+        // loop through all the paragraphs and sentences
+        /*within paragraphs there are verse objects which contain text verses
+         * organized the same way paragraphs are but when one is found we encapsulate
+         * it with a div class(verse) which we can use to style later in the css.
+         * Each sentence within the verse is also padded with a p tag in order to
+         * have a line between each verse sentence. The fact that it is a p tag
+         * means that we can inherit other p tag properties that may be changed in
+         * the css.*/
+        for (var para = 0; para < story.text.paragraphs.length; para++) {
+          strContent += "<p class=\"firefox\">";
+          for (var sent = 0; sent < story.text.paragraphs[para].length; sent++) {
+            line = story.text.paragraphs[para][sent];
+            if (line !== null && typeof line === 'object') {
+              strContent += "<div class=\"verse\">";
+              
+              for (var verseLine = 0; verseLine < line.verse.length; verseLine++) {
+                strContent += "<p>" + line.verse[verseLine] + "</p>";
+                //alert(line.verse[verseLine]);
+              }
+              strContent += "</div>";
+            }
+            else {
+            strContent += line + "&nbsp; ";
+          }
+          }
+          strContent += "</p>";
+        }
+        
+        /*        // loop through all the paragraphs and sentences
+        for (var para = 0; para < story.text.paragraphs.length; para++) {
+          strContent += "<p class=\"firefox\">";
+          for (var sent = 0; sent < story.text.paragraphs[para].length; sent++) {
+            sentence = story.text.paragraphs[para][sent];
+            if  (sentence.indexOf("$^v") === 0) {
+              strContent += "<div class=\"verse\">";
+              sub = sentence;
+              while (sentence.indexOf("\""))
+                
+              strContent += sentence + "&nbsp; ";
+              strContent += "</div>";
+            }
+            else {
+            strContent += sentence + "&nbsp; ";
+          }
+          }
+          strContent += "</p>";
+        }*/
+
+        // place dynamic content on page
+        // document.getElementById( "content" ).innerHTML = strContent ;
+        $("#cont").html(strContent);
+      }
+    </script>
+  </head>
+  <body>
+    <!--navigation placeholder class, used as a main menu at top of page.
+    -->
+    <div class="navigation">
+      <a href="/">Home</a> |
+      <a href="../../assignments.html">Assignments</a>
+    </div>
+    <!--content class used for padding and placeholder
+    -->
+    <div class="wrapper">
+      <div class="banner">Paul Karcher's Weblab Site</div>
+      <div class="left-pane-wrapper"><div class="left-pane">
+          <div class="sidebar-item"><a href="../../index.html">Assignment 1</a></div>
+          <div class="sidebar-item"><a href="../../assignments.html">Assignment 2</a></div>
+          <div class="sidebar-item"><a href="../../assignments.html">Assignment 3</a></div>
+          <div class="sidebar-item"><a href="http://paulkarcher.github.io/GUI/">Assignment 4</a></div>
+          <div class="sidebar-item">Assignment 5(Current Page)</div>
+          <div class="sidebar-item"><a href="../assignment6/assignment6.html">Assignment 6</a></div>
+        </div></div>
+
+      <div class="main-pane">
+        <div class="content">
+          <div id="cont"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

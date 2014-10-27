@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Paul Karcher
+paulk460@gmail.com
+October 22, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description:Assignment 6 page, javascript multiplication form project.
+-->
+
+<html lang ="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/main.css" rel="stylesheet" type="text/css">
+    <link href="../css/forms.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <!--navigation placeholder class, used as a main menu at top of page.
+    -->
+    <div class="navigation">
+      <a href="index.html">Home</a> |
+      <a href="assignments.html">Assignments</a>
+    </div>
+    <!--content class used for padding and placeholder
+    -->
+    <div class="wrapper">
+      <div class="banner">Paul Karcher's Weblab Site</div>
+      <div class="left-pane-wrapper"><div class="left-pane"><a href="assignments.html">Assignments</a></div></div>
+
+      <div class="main-pane">
+        <div class="content">
+          <h3>Type the word "gui" to succeed.</h3>
+          <form>
+            <div>
+              <input type="text">
+              <input type="submit">
+            </div>
+          </form>
+          <p class="mutating-text"></p>
+          <!-- original idea came from http://api.jquery.com/submit/-->
+          <script>
+            /* what to do when submit is clicked */
+            $("form").submit(function(event)
+            {
+              /* allows for dynamically changing notification messages */
+              function changeP(message)
+              {
+                $("p.mutating-text").text(message).show();
+                /* prevent the page from resetting */
+                event.preventDefault();
+              }
+              if ($("input:first").val() === "gui")
+              {
+                changeP("You have succeeded.");
+              }
+              else
+              {
+                changeP("That is not the correct word.");
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
