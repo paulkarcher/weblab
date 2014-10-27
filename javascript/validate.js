@@ -9,6 +9,8 @@
 // N.B.  This version *does* apply the CSS.
 // N.B.  This version *does* apply the CSS.
 $(document).ready(function () {
+    $("#multi-table td:nth-child(1)").addClass("multiple");
+    $("#multi-table tr:nth-child(1)").addClass("multiple");
     analyseInput();
 });
 
