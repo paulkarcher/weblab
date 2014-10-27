@@ -7,8 +7,7 @@ Description:Stylesheet for html5 forms
 */
 
 
-#mult-form
-{
+#mult-form {
     float: left;
     /*border: solid black 1px;*/
     padding-left: 5px;
@@ -16,13 +15,11 @@ Description:Stylesheet for html5 forms
 }
 
 
-#multi-table td
-{
+#multi-table td {
     text-align: center;
 }
 
-.form-input
-{
+.form-input {
     padding-bottom: 5px;
     padding-top: 5px;
     width: 400px;
@@ -30,19 +27,16 @@ Description:Stylesheet for html5 forms
 
 
 
-span[id^="error"]
-{
+span[id^="error"] {
     color: red;
     word-wrap: break-word;
 }
 
-.error
-{
+.error {
     border: 1px solid red;
 }
 
-.multiple
-{
+.multiple {
     background: lightblue;
     font-weight: bold;
 }

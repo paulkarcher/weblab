@@ -4,7 +4,7 @@ paulk460@gmail.com
 Sep 10, 2014
 Page created as student work for 91.461 GUI Programming I at UMass Lowell
 Description: Stylesheet for the text formatting involved in assignment 5.
-Kept 
+Kept
 */
 
 /*p
@@ -12,21 +12,19 @@ Kept
     text-indent: 50px;
 }*/
 
-.title
-{
+.title {
     text-decoration: underline;
 }
 
 
 /* additional minor header refinements */
 .locationLabel {
-  font-style : italic ;
+    font-style: italic ;
 }
 
 
 
-.verse
-{
+.verse {
     font-style: italic;
     text-align: center;
     line-height: 1.1;

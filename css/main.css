@@ -9,16 +9,14 @@ Description:Main stylesheet for the basic components of the site.
 /*
 get rid of default underline on links
 */
-a
-{
+a {
     text-decoration: none;
 }
 
 /*
 links are red and underlined when hovered over
 */
-a:hover
-{ 
+a:hover {
     color: red;
     text-decoration: underline;
 }
@@ -26,16 +24,14 @@ a:hover
 /*
 set all headers to a dark shade of red
 */
-h1, h2, h3, h4, h5, h6
-{
+h1, h2, h3, h4, h5, h6 {
     color: #C90000;
 }
 
 /*
 table border style changed to look more compact
 */
-table
-{
+table {
     border-style: solid;
 }
 
@@ -43,11 +39,10 @@ table
 increase font size
 add a bit of padding to the bottom to seperate it more clearly from the banner
 */
-.navigation
-{
+.navigation {
     font-size: 20px;
     padding-bottom: 20px;
-    
+
 }
 
 /*
@@ -56,8 +51,7 @@ it acts as a frame to allow for easier div alignment within itself
 
 border added to test alignment
 */
-.wrapper
-{
+.wrapper {
     /*width: 1000px;*/
     border: 1px solid black;
     overflow: auto; /* let the browser decide how it wants to handle overflow */
@@ -67,8 +61,7 @@ border added to test alignment
 /*
 banner for the site, aligns above main and left pane
 */
-.banner
-{
+.banner {
     text-align: center;
     background-color: #aad4ff;
     font-size: 30px;
@@ -85,8 +78,7 @@ banner for the site, aligns above main and left pane
 the left pane will act as a side menu and will include links to more specific
 sections that would otherwise have clogged up the navigation bar at the top
 */
-.left-pane-wrapper
-{
+.left-pane-wrapper {
     float: left;
     width: 15%;
     border: 5px outset royalblue;
@@ -94,8 +86,7 @@ sections that would otherwise have clogged up the navigation bar at the top
 
 }
 
-.left-pane
-{
+.left-pane {
     margin-left: 1%;
     margin-right: 1%;
     margin-bottom: 1%;
@@ -106,9 +97,9 @@ sections that would otherwise have clogged up the navigation bar at the top
                            eliminates scrollbar, does not require paragraph tag */
 }
 
-.sidebar-item
-{
-    
+/* placeholder, will be styled later*/
+.sidebar-item {
+
 }
 
 /*
@@ -116,21 +107,19 @@ placeholder, allows for banner and pane alignment
 creates a margin for the floating left-pane to exist in, and it adds 1%
 seperation between the two
 */
-.main-pane
-{
+.main-pane {
     margin: 0 0 0 16%;
 }
 
 
-/* 
+/*
 line height adjusted for easier reading
 padding created around the content so that it does not hug the edges of the div frame
 background changed to white for easier reading
 word wrap to contain text from leaving the frame
 overflow to prevent other content from leaving the frame, let browser choose how it wants to deal with it
 */
-.content
-{
+.content {
     border: 1px solid green;
     line-height: 1.25;
     padding-top: 10px;
@@ -145,15 +134,13 @@ overflow to prevent other content from leaving the frame, let browser choose how
 /*
 border styles for tables
 */
-table
-{
+table {
     border-collapse: collapse;
 }
 /*
 style and padding rules for table headers and their borders
 */
-th
-{
+th {
     text-align: left;
     padding: 6px;
     padding-left: 15px;
@@ -166,8 +153,7 @@ th
 /*
 style and padding rules for table body elements and their borders
 */
-td
-{
+td {
     text-align: left;
     padding: 6px;
     /*padding-left: 20px;*/
@@ -176,8 +162,7 @@ td
 
 /* used to align dates with the center of the column, placeholder for
 css updates being planned*/
-.table-x
-{
+.table-x {
     text-align: center;
 }
 
@@ -187,8 +172,7 @@ css updates being planned*/
 custom padding for the assignment numbers, leaves some trailing padding to right
 just to look a bit less compacted
 */
-.assignment-numbers
-{
+.assignment-numbers {
     padding-left: 15px;
     padding-right: 15px
 }
@@ -197,11 +181,7 @@ just to look a bit less compacted
 Set everything within the body to use a google-font
 set a background color for site
 */
-body
-{
+body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #ccccff;
 }
-
-
-
