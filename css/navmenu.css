@@ -1,0 +1,35 @@
+/*
+Paul Karcher
+paulk460@gmail.com
+Oct 27, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description:
+*/
+/*
+    Created on : Oct 27, 2014, 10:04:19 PM
+    Author     : otis
+*/
+
+
+#navmenu ul {
+    margin: 0 0 0 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style-type: none;
+    text-align: center;
+}
+
+#navmenu ul li {
+    display: inline;
+    border: solid lawngreen 1px;
+    padding: 10px 10px 10px 10px;
+    background: lightgreen;
+    border-radius: 15px;
+    /* rounded border support for firefox */
+    -moz-border-radius: 15px;
+    font-size: 20px;
+}
+
+#dynamic-content {
+  margin-top: 5px;
+}

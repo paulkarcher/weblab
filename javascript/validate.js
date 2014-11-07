@@ -3,11 +3,9 @@
  * paulk460@gmail.com
  * Oct 26, 2014
  * Page created as student work for 91.461 GUI Programming I at UMass Lowell
- * Description:
+ * Description: javascript used to validate form input
  */
 
-// N.B.  This version *does* apply the CSS.
-// N.B.  This version *does* apply the CSS.
 $(document).ready(function () {
     $("#multi-table td:nth-child(1)").addClass("multiplicand");
     $("#multi-table tr:nth-child(1)").addClass("multiplicand");
@@ -16,7 +14,6 @@ $(document).ready(function () {
 
 function createTable(rowStart, rowEnd, colStart, colEnd) {
     var strContent = "";
-
 
     var rowStart = parseInt($("#row-start").val());
     var rowEnd = parseInt($("#row-end").val());
@@ -73,17 +70,6 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
 
 
     $("#multi-table td:nth-child(1)").addClass("multiplicand");
-
-
-
-
-
-
-
-
-
-
-
 }
 
 function analyseInput()

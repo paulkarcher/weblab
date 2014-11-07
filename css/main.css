@@ -108,7 +108,7 @@ creates a margin for the floating left-pane to exist in, and it adds 1%
 seperation between the two
 */
 .main-pane {
-    margin: 0 0 0 16%;
+    margin: 0% 0% 0% 15%;
 }
 
 

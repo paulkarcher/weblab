@@ -18,21 +18,25 @@ Description:Stylesheet for html5 forms
     text-align: center;
 }
 
+/*  */
 .form-input {
     padding-bottom: 5px;
     padding-top: 5px;
     width: 400px;
 }
 
+/* make the error messages red and wrap the text */
 span[id^="error"] {
     color: red;
     word-wrap: break-word;
 }
 
+/* red border highlight for incorrect form inputs */
 .error {
     border: 1px solid red;
 }
 
+/* used to style the tables initial multiplicands (inputted form values) */
 .multiplicand {
     background: lightblue;
     font-weight: bold;
