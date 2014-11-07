@@ -3,20 +3,9 @@ Paul Karcher
 paulk460@gmail.com
 Oct 27, 2014
 Page created as student work for 91.461 GUI Programming I at UMass Lowell
-Description:
-*/
-/*
-    Created on : Oct 27, 2014, 10:04:19 PM
-    Author     : otis
+Description: styling for the single page nave menu.
 */
 
-#navmenu {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
 
 #navmenu ul {
   margin: 0 0 0 0;
