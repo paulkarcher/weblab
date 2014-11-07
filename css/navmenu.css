@@ -10,24 +10,31 @@ Description:
     Author     : otis
 */
 
+#navmenu {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
 
 #navmenu ul {
-    margin: 0 0 0 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    list-style-type: none;
-    text-align: center;
+  margin: 0 0 0 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  list-style-type: none;
+  text-align: center;
 }
 
 #navmenu ul li {
-    display: inline;
-    border: solid lawngreen 1px;
-    padding: 10px 10px 10px 10px;
-    background: lightgreen;
-    border-radius: 15px;
-    /* rounded border support for firefox */
-    -moz-border-radius: 15px;
-    font-size: 20px;
+  display: inline;
+  border: solid lawngreen 1px;
+  padding: 10px 10px 10px 10px;
+  background: lightgreen;
+  border-radius: 15px;
+  /* rounded border support for firefox */
+  -moz-border-radius: 15px;
+  font-size: 20px;
 }
 
 #dynamic-content {

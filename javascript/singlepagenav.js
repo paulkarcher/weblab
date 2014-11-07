@@ -7,6 +7,8 @@
  */
 
 
+// Modified code taken from Curran Kelleher's lecture for GUI Progrmming I
+
 // This script implements simple routing by loading partial HTML files 
 // named corresponding to fragment identifiers.
 //
