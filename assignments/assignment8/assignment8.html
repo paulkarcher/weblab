@@ -2,13 +2,13 @@
 <!--
 Paul Karcher
 paulk460@gmail.com
-October 22, 2014
+November 22, 2014
 Page created as student work for 91.461 GUI Programming I at UMass Lowell
-Description:Assignment 6 page, javascript multiplication form project.
+Description:Assignment 8 page, jquery validation plugin multiplication form project.
 -->
 <html lang ="en">
     <head>
-        <title>Assignment 6</title>
+        <title>Assignment 8</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../../css/main.css" rel="stylesheet" type="text/css">
@@ -16,13 +16,9 @@ Description:Assignment 6 page, javascript multiplication form project.
         <link rel="shortcut icon" href="../../favicon.ico">
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="../../javascript/validate.js" type="text/javascript"></script>
-
-        <!-- Jesse Heines' code taken verbatim from the assignment 5 page
-        https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/FormattingText-v04.jsp
-        and is used to handle the json file. -->
-
-
+        <script src="../../javascript/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="../../javascript/additional-methods.min.js" type="text/javascript"></script>
+        <script src="../../javascript/jquery-validation.js" type="text/javascript"></script>
     </head>
     <body>
         <!-- navigation placeholder class, used as a main menu at top of page. -->
@@ -40,25 +36,25 @@ Description:Assignment 6 page, javascript multiplication form project.
                     <div class="sidebar-item"><a href="../../assignments.html">Assignment 3</a></div>
                     <div class="sidebar-item"><a href="http://paulkarcher.github.io/GUI/">Assignment 4</a></div>
                     <div class="sidebar-item"><a href="../assignment5/assignment5.html">Assignment 5</a></div>
-                    <div class="sidebar-item">Assignment 6(Current Page)</div>
+                    <div class="sidebar-item"><a href="../assignment6/assignment6.html">Assignment 6</a></div>
                     <div class="sidebar-item"><a href="../assignment7/assignment7.html">Assignment 7</a></div>
-                    <div class="sidebar-item"><a href="../assignment8/assignment8.html">Assignment 8</a></div>
+                    <div class="sidebar-item">Assignment 8(Current Page)</div>
                 </div>
             </div>
 
             <div class="main-pane">
                 <div class="content">
-                    <form id="mult-form">
+                    <form class="cmxform" id="mult-form" method="get" action="">
                         <!-- Table used to organize and align the form inputs -->
                         <table class="form-input">
                             <tr>
                                 <td>
-                                    <span>Row starting number</span>
+                                    <label for="crow_start">Name (required, at least 2 characters)</label>
                                 </td>
                                 <td>
-                                    <input id="row-start" type="number"  min="1" required value="1"/>
+                                    <input id="crow_start" name="crow-start" value="1" required/>
                                     <div>
-                                        <span id="error-row-start"></span>
+                                        <span id="error_row_start"></span>
                                     </div>
                                 </td>
                             </tr>

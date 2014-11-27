@@ -21,8 +21,8 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     var colEnd = parseInt($("#col-end").val());
 
     /* include a 1 to allow for the initial number of columns and rows */
-    var rows = [1];
-    var cols = [];
+    var cols = [1];
+    var rows = [];
 
     strContent += "<table>" +
             "<tr>" +
@@ -42,24 +42,24 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     console.log("Cols:");
     console.log(cols.toString());
 
-    /* create the initial rows in the table (do not have to be multiplied */
-    for (var row = 1; row < rows.length; row++)
+    /* create the initial columns in the table (do not have to be multiplied */
+    for (var col = 1; col < cols.length; col++)
     {
-        strContent += "<td>" + rows[row] + "</td>";
-        console.log(rows[row]);
+        strContent += "<td>" + cols[col] + "</td>";
+        console.log(cols[col]);
     }
 
     /* close the  initial row */
     strContent += "</tr>";
 
     /* create the rest of the table */
-    for (var col = 0; col < cols.length; col++)
+    for (var row = 0; row < rows.length; row++)
     {
         strContent += "<tr>";
-        for (var row = 0; row < rows.length; row++)
+        for (var col = 0; col < cols.length; col++)
         {
-            strContent += "<td>" + cols[col] * rows[row] + "</td>";
-            console.log(rows[row]);
+            strContent += "<td>" + rows[row] * cols[col] + "</td>";
+            console.log(cols[col]);
         }
         strContent += "</tr>";
     }
@@ -67,8 +67,6 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     $("#multi-table").html(strContent);
 
     $("#multi-table tr:nth-child(1)").addClass("multiplicand");
-
-
     $("#multi-table td:nth-child(1)").addClass("multiplicand");
 }
 

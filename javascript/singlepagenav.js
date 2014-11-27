@@ -7,7 +7,7 @@
  */
 
 
-// Modified code taken from Curran Kelleher's lecture for GUI Progrmming I
+// Modified code taken from Curran Kelleher's lecture for GUI Programming I
 
 // This script implements simple routing by loading partial HTML files 
 // named corresponding to fragment identifiers.
@@ -27,21 +27,17 @@
   // This function implements a simple cache.
   function getContent(fragmentId, callback)
   {
-
     // If the page has been fetched before,
     if (partialsCache[fragmentId])
     {
-
       // pass the previously fetched content to the callback.
       callback(partialsCache[fragmentId]);
-
     }
     else
     {
       // If the page has not been fetched before, fetch it.
       $.get(fragmentId + ".html", function (content)
       {
-
         // Store the fetched content in the cache.
         partialsCache[fragmentId] = content;
 
@@ -54,10 +50,16 @@
   // Sets the "active" class on the active navigation link.
   function setActiveLink(fragmentId)
   {
-    $("#navmenu a").each(function (i, linkElement)
+    $("#navmenu a").each(scanLinks);
+    function scanLinks(linkElement)
     {
-      var link = $(linkElement),
-              pageName = link.attr("href").substr(1);
+      var link = $(linkElement);
+      pageName = link.attr("href").substr(1);
+      
+      console.log("linkElement");
+      console.log(linkElement);
+      console.log("pageName");
+      console.log(pageName);
       if (pageName === fragmentId)
       {
         link.attr("class", "active");
@@ -66,13 +68,12 @@
       {
         link.removeAttr("class");
       }
-    });
+    }
   }
 
   // Updates dynamic content based on the fragment identifier.
   function navigate()
   {
-
     // Isolate the fragment identifier using substr.
     // This gets rid of the "#" character.
     var fragmentId = location.hash.substr(1);
@@ -90,12 +91,9 @@
   // If no fragment identifier is provided, (falsey)
   if (!location.hash)
   {
-
     // default to #home.
     location.hash = "#about";
   }
-  
-
 
   // Navigate once to the initial fragment identifier.
   navigate();

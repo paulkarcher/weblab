@@ -10,29 +10,29 @@ Description:Main stylesheet for the basic components of the site.
 get rid of default underline on links
 */
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /*
 links are red and underlined when hovered over
 */
 a:hover {
-    color: red;
-    text-decoration: underline;
+  color: red;
+  text-decoration: underline;
 }
 
 /*
 set all headers to a dark shade of red
 */
 h1, h2, h3, h4, h5, h6 {
-    color: #C90000;
+  color: #C90000;
 }
 
 /*
 table border style changed to look more compact
 */
 table {
-    border-style: solid;
+  border-style: solid;
 }
 
 /*
@@ -40,8 +40,8 @@ increase font size
 add a bit of padding to the bottom to seperate it more clearly from the banner
 */
 .navigation {
-    font-size: 20px;
-    padding-bottom: 20px;
+  font-size: 20px;
+  padding-bottom: 20px;
 
 }
 
@@ -52,9 +52,9 @@ it acts as a frame to allow for easier div alignment within itself
 border added to test alignment
 */
 .wrapper {
-    /*width: 1000px;*/
-    border: 1px solid black;
-    overflow: auto; /* let the browser decide how it wants to handle overflow */
+  /*width: 1000px;*/
+  border: 1px solid black;
+  overflow: auto; /* let the browser decide how it wants to handle overflow */
 }
 
 
@@ -62,14 +62,14 @@ border added to test alignment
 banner for the site, aligns above main and left pane
 */
 .banner {
-    text-align: center;
-    background-color: #aad4ff;
-    font-size: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    word-wrap: break-word; /* allows for word wrapping on smaller interfaces,
-                           eliminates scrollbar when the window is small */
-    border-bottom: solid black 1px;
+  text-align: center;
+  background-color: #aad4ff;
+  font-size: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  word-wrap: break-word; /* allows for word wrapping on smaller interfaces,
+                         eliminates scrollbar when the window is small */
+  border-bottom: solid black 1px;
 }
 
 
@@ -79,22 +79,20 @@ the left pane will act as a side menu and will include links to more specific
 sections that would otherwise have clogged up the navigation bar at the top
 */
 .left-pane-wrapper {
-    float: left;
-    width: 15%;
-    border: 5px outset royalblue;
-    /*background-color: graytext;*/
+  float: left;
+  width: 15%;
+
+  /*background-color: graytext;*/
 
 }
 
 .left-pane {
-    margin-left: 1%;
-    margin-right: 1%;
-    margin-bottom: 1%;
-    margin-top: 1%;
-    overflow: hidden; /* prevents images within the pane from clipping the div
-                      and eliminates a scrollbar if the windows is too small */
-    word-wrap: break-word; /* allows for word wrapping on smaller interfaces,
-                           eliminates scrollbar, does not require paragraph tag */
+  margin-right: 1%;
+  overflow: hidden; /* prevents images within the pane from clipping the div
+                    and eliminates a scrollbar if the windows is too small */
+  word-wrap: break-word; /* allows for word wrapping on smaller interfaces,
+                         eliminates scrollbar, does not require paragraph tag */
+  border: 5px outset royalblue;
 }
 
 /* placeholder, will be styled later*/
@@ -104,11 +102,10 @@ sections that would otherwise have clogged up the navigation bar at the top
 
 /*
 placeholder, allows for banner and pane alignment
-creates a margin for the floating left-pane to exist in, and it adds 1%
-seperation between the two
 */
 .main-pane {
-    margin: 0% 0% 0% 15%;
+  float: left;
+  width: 85%;
 }
 
 
@@ -120,32 +117,32 @@ word wrap to contain text from leaving the frame
 overflow to prevent other content from leaving the frame, let browser choose how it wants to deal with it
 */
 .content {
-    border: 1px solid green;
-    line-height: 1.25;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    background-color: #FFFFFF;
-    word-wrap: break-word; /* word wrap for any text content that is not a paragraph element */
-    overflow: auto;
+  border: 1px solid green;
+  line-height: 1.25;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  background-color: #FFFFFF;
+  word-wrap: break-word; /* word wrap for any text content that is not a paragraph element */
+  overflow: auto;
 }
 
 /*
 border styles for tables
 */
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 /*
 style and padding rules for table headers and their borders
 */
 th {
-    text-align: left;
-    padding: 6px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid #B8B8B8;
+  text-align: left;
+  padding: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid #B8B8B8;
 }
 
 
@@ -154,16 +151,16 @@ th {
 style and padding rules for table body elements and their borders
 */
 td {
-    text-align: left;
-    padding: 6px;
-    /*padding-left: 20px;*/
-    border: 1px solid #B8B8B8;
+  text-align: left;
+  padding: 6px;
+  /*padding-left: 20px;*/
+  border: 1px solid #B8B8B8;
 }
 
 /* used to align dates with the center of the column, placeholder for
 css updates being planned*/
 .table-x {
-    text-align: center;
+  text-align: center;
 }
 
 
@@ -173,8 +170,8 @@ custom padding for the assignment numbers, leaves some trailing padding to right
 just to look a bit less compacted
 */
 .assignment-numbers {
-    padding-left: 15px;
-    padding-right: 15px
+  padding-left: 15px;
+  padding-right: 15px
 }
 
 /*
@@ -182,6 +179,16 @@ Set everything within the body to use a google-font
 set a background color for site
 */
 body {
-    font-family: 'Ubuntu', sans-serif;
-    background-color: #ccccff;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #ccccff;
+}
+
+audio {
+  display: inline;
+  border: solid tomato 1px;
+  padding: 5px 5px 5px 5px;
+  background: forestgreen;
+  border-radius: 15px;
+  /* rounded border support for firefox */
+  -moz-border-radius: 15px;
 }
