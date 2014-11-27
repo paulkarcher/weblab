@@ -1,18 +1,36 @@
 /*
  * Paul Karcher
  * paulk460@gmail.com
- * Oct 26, 2014
+ * Nov 20, 2014
  * Page created as student work for 91.461 GUI Programming I at UMass Lowell
  * Description: javascript used to validate form input using the jquery validation plugin
  */
 
 $(document).ready(function () {
-  $("#multi-table td:nth-child(1)").addClass("multiplicand");
-  $("#multi-table tr:nth-child(1)").addClass("multiplicand");
+  $("div#tabs").tabs();
   analyseInput();
 });
 
-function createTable(rowStart, rowEnd, colStart, colEnd) {
+function addTab() {
+  var num_tabs = getTabsLength() + 1;
+
+  $("div#tabs ul").append(
+          "<li><a href='#tab" + num_tabs + "'>(" + parseInt($("#row-start").val()) +
+          " to " + parseInt($("#row-end").val()) + ") * (" + 
+          parseInt($("#col-start").val()) + " to " +parseInt($("#col-end").val()) +
+          ")</a></li>");
+  
+  $("div#tabs").append(
+          "<div id='tab" + num_tabs + "'>#" + num_tabs + "</div>");
+  
+  $("div#tabs").tabs("refresh");
+}
+
+function getTabsLength() {
+  return $("div#tabs ul li").length;
+}
+
+function createTable(tabsLength) {
   var strContent = "";
 
   var rowStart = parseInt($("#row-start").val());
@@ -24,7 +42,8 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
   var cols = [1];
   var rows = [];
 
-  strContent += "<table>" +
+  strContent += "<div class='multi-table'>" +
+          "<table>" +
           "<tr>" +
           "<td>&nbsp</td>";
 
@@ -63,53 +82,30 @@ function createTable(rowStart, rowEnd, colStart, colEnd) {
     }
     strContent += "</tr>";
   }
+  
+  strContent += "</div>";
 
-  $("#multi-table").html(strContent);
-
-  $("#multi-table tr:nth-child(1)").addClass("multiplicand");
-  $("#multi-table td:nth-child(1)").addClass("multiplicand");
+  console.log("tabsLength:");
+  console.log(tabsLength);
+  $("#tab" + tabsLength).html(strContent);
 }
+
+
+
+
 
 function analyseInput()
 {
   $("#mult-form").submit(function (event) {
-    if (validate())
-    {
-      createTable();
-    }
+      addTab();
+      createTable(getTabsLength());
+      
+    /*must remove because jquery validation does this already */
     event.preventDefault();
+
   });
 }
 
-
-function validate()
-{
-  var rowStart = $("#row-start").val();
-  var rowEnd = $("#row-end").val();
-  var colStart = $("#col-start").val();
-  var colEnd = $("#col-end").val();
-
-  /* reset the error stylings to blank */
-  $("span[id^='error']").html("");
-  $("input").removeClass("error");
-
-  var isValid = true;
-
-  if (parseInt(rowStart) > parseInt(rowEnd))
-  {
-    $("#row-start").addClass("error");
-    $("#error-row-start").html("Starting row value must be less than the ending row value.");
-    isValid = false;
-  }
-  if (parseInt(colStart) > parseInt(colEnd))
-  {
-    $("#col-start").addClass("error");
-    $("#error-col-start").html("Starting column value must be less than the ending column value.");
-    isValid = false;
-  }
-
-  return isValid;
-}
 
 
 
@@ -118,12 +114,13 @@ function validate()
 
 
 /* http://stackoverflow.com/questions/1260984/jquery-validate-less-than */
+/*
 $.validator.addMethod('lessThanEqual', function (value, element, param) {
   return this.optional(element) || parseInt(value) <= parseInt($(param).val());
 }, "The value {0} must be less than {1}");
+*/
 
-
-
+/*
 $('#mult-form').validate({
   rules: {
     crow_start: {
@@ -159,3 +156,4 @@ $('#mult-form').validate({
     form.submit();
   }
 });
+*/

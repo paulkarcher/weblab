@@ -8,13 +8,12 @@ Description:Stylesheet for html5 forms
 
 
 #mult-form {
-    float: left;
     /*border: solid black 1px;*/
     padding-left: 5px;
     padding-right: 5px;
 }
 
-#multi-table td {
+.multi-table td {
     text-align: center;
 }
 
@@ -37,7 +36,7 @@ span[id^="error"] {
 }
 
 /* used to style the tables initial multiplicands (inputted form values) */
-.multiplicand {
+.multi-table tr:nth-child(1), .multi-table td:nth-child(1) {
     background: lightblue;
     font-weight: bold;
 }

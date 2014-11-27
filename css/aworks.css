@@ -1,0 +1,20 @@
+/*
+Paul Karcher
+paulk460@gmail.com
+Nov 27, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description:
+*/
+/* 
+    Created on : Nov 27, 2014, 1:22:16 AM
+    Author     : otis
+*/
+
+#tabs {
+  margin-top: 10px;
+}
+
+#tabs-header
+{
+  text-align: center;
+}
