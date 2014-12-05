@@ -69,9 +69,9 @@ $(document).ready(function () {
       console.log("error");
       console.log(error);
       element.toString();
-      error.appendTo($(element).closest('span').next().find('.class'));
-      console.log("closest");
-      console.log($(element).closest('span').next().find('.class'));
+      error.appendTo($(element).next());
+      console.log("next");
+      console.log($(element).next());
     },
     submitHandler: function () {
       success: {
@@ -167,12 +167,13 @@ function createTable(tabsLength) {
 
 function analyseInput()
 {
-  $("#mult-form").submit(function (event) {});
-    addTab();
-    createTable(getTabsLength());
+  $("#mult-form").submit(function (event) {
+  });
+  addTab();
+  createTable(getTabsLength());
 
-    /*must remove because jquery validation does this already */
-    //event.preventDefault();
+  /*must remove because jquery validation does this already */
+  //event.preventDefault();
 }
 
 
