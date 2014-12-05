@@ -18,3 +18,17 @@ Description:
 {
   text-align: center;
 }
+
+
+/* Taken from Javascript and JQuery the Missing Manual chapter 9 complete_validation.html */
+#mult-form label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+  margin-left: 215px;
+}
+#mult-form  input.error, #mult-form select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}

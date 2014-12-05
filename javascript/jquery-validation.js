@@ -8,21 +8,92 @@
 
 $(document).ready(function () {
   $("div#tabs").tabs();
-  analyseInput();
+
+  /*
+   jQuery.validator.setDefaults({
+   debug: true,
+   success: "valid"
+   });
+   */
+
+  /* http://stackoverflow.com/questions/1260984/jquery-validate-less-than */
+
+  $.validator.addMethod('lessThanEqual', function (value, element, param) {
+    return this.optional(element) || parseInt(value) <= parseInt($(param).val());
+  }, "The value {0} must be less than {1}");
+
+  $('#mult-form').validate({
+    rules: {
+      crow_start: {
+        required: true,
+        digits: true,
+        lessThanEqual: crow_end
+      },
+      crow_end: {
+        required: true,
+        digits: true
+      },
+      ccol_start: {
+        required: true,
+        digits: true,
+        lessThanEqual: ccol_end
+      },
+      ccol_end: {
+        required: true,
+        digits: true
+      }
+      /* holding on to this method as a reference for how to use the equalTo method
+       * confirm_password: {equalTo: '#password'},
+       spam: "required"
+       }, //end rules*/
+    },
+    messages: {
+      crow_start: {
+        required: "Please supply the number to start the rows at.",
+        lessThanEqual: "The starting row number cannot exceed the row ending number."
+      },
+      crow_end: {
+        required: 'Please supply the number for the rows to end at.'
+      },
+      ccol_start: {
+        required: "Please supply the number to start the columns at.",
+        lessThanEqual: "The starting column number cannot exceed the columns ending number."
+      },
+      ccol_end: {
+        required: 'Please supply the number for the columns to end at.'
+      }
+    },
+    errorPlacement: function (error, element) {
+      console.log("element");
+      console.log(element);
+      console.log("error");
+      console.log(error);
+      element.toString();
+      error.appendTo($(element).closest('span').next().find('.class'));
+      console.log("closest");
+      console.log($(element).closest('span').next().find('.class'));
+    },
+    submitHandler: function () {
+      success: {
+        analyseInput();
+      }
+    }
+  }); // end validate
+
 });
 
 function addTab() {
   var num_tabs = getTabsLength() + 1;
 
   $("div#tabs ul").append(
-          "<li><a href='#tab" + num_tabs + "'>(" + parseInt($("#row-start").val()) +
-          " to " + parseInt($("#row-end").val()) + ") * (" + 
-          parseInt($("#col-start").val()) + " to " +parseInt($("#col-end").val()) +
+          "<li><a href='#tab" + num_tabs + "'>(" + parseInt($("#crow_start").val()) +
+          " to " + parseInt($("#crow_end").val()) + ") * (" +
+          parseInt($("#ccol_start").val()) + " to " + parseInt($("#ccol_end").val()) +
           ")</a></li>");
-  
+
   $("div#tabs").append(
           "<div id='tab" + num_tabs + "'>#" + num_tabs + "</div>");
-  
+
   $("div#tabs").tabs("refresh");
 }
 
@@ -33,10 +104,10 @@ function getTabsLength() {
 function createTable(tabsLength) {
   var strContent = "";
 
-  var rowStart = parseInt($("#row-start").val());
-  var rowEnd = parseInt($("#row-end").val());
-  var colStart = parseInt($("#col-start").val());
-  var colEnd = parseInt($("#col-end").val());
+  var rowStart = parseInt($("#crow_start").val());
+  var rowEnd = parseInt($("#crow_end").val());
+  var colStart = parseInt($("#ccol_start").val());
+  var colEnd = parseInt($("#ccol_end").val());
 
   /* include a 1 to allow for the initial number of columns and rows */
   var cols = [1];
@@ -82,7 +153,7 @@ function createTable(tabsLength) {
     }
     strContent += "</tr>";
   }
-  
+
   strContent += "</div>";
 
   console.log("tabsLength:");
@@ -96,64 +167,13 @@ function createTable(tabsLength) {
 
 function analyseInput()
 {
-  $("#mult-form").submit(function (event) {
-      addTab();
-      createTable(getTabsLength());
-      
-    /*must remove because jquery validation does this already */
-    event.preventDefault();
+  $("#mult-form").submit(function (event) {});
+    addTab();
+    createTable(getTabsLength());
 
-  });
+    /*must remove because jquery validation does this already */
+    //event.preventDefault();
 }
 
 
 
-
-
-
-
-
-/* http://stackoverflow.com/questions/1260984/jquery-validate-less-than */
-/*
-$.validator.addMethod('lessThanEqual', function (value, element, param) {
-  return this.optional(element) || parseInt(value) <= parseInt($(param).val());
-}, "The value {0} must be less than {1}");
-*/
-
-/*
-$('#mult-form').validate({
-  rules: {
-    crow_start: {
-      required: true,
-      rangelength: [1, 15],
-      lessThanEqual: '#crow_end'
-    },
-    crow_end: {
-      required: true,
-      rangelength: [1, 16]
-    },
-    ccol_start: {
-      required: true,
-      rangelength: [1, 16]
-    },
-    ccol_end: {
-      required: true,
-      rangelength: [1, 16]
-    }
-  }, // end of rules
-  messages: {
-    password: {
-      required: "Please type the password you'd like to use.",
-      rangelength: "Your password must be between 8 and 16 characters long."
-    },
-    confirm_password: {
-      equalTo: "The two passwords don't match."
-    }
-  }, // end of messages
-
-
-  submitHandler: function (form) {
-    form.submit();
-  }
-});
-*/

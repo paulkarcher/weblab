@@ -11,6 +11,7 @@
         <link href="../../css/forms.css" rel="stylesheet" type="text/css"/>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="../../javascript/jquery.validate.min.js" type="text/javascript"></script>
         <script src="../../javascript/jquery-validation.js" type="text/javascript"></script>
     </head>
     <body>
@@ -38,55 +39,53 @@
             <div class="main-pane">
                 <div class="content">
                     <div id="table-wrapper">
-                        <form class="cmxform" id="mult-form" method="get" action="">
+                        <form class="cmxform" name="mult-form" id="mult-form" method="get" action="javascript:void(0);">
                             <!-- Table used to organize and align the form inputs -->
                             <table class="form-input">
                                 <tr>
                                     <td>
-                                        <span>Row ending number</span>
+                                        <label for="crow_start" class="label">Row start</label>
                                     </td>
                                     <td>
-                                        <input id="row-start" type="number" min="1" required value="1"/>
+                                        <input name="crow_start" type="text" id="crow_start" value="1">
                                         <span id="error-row-start"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span>Row ending number</span>
+                                        <label for="crow_end" class="label">Row end</label>
                                     </td>
                                     <td>
-                                        <input id="row-end" type="number" min="1" required value="3"/>
+                                        <input name="crow_end" type="text" id="crow_end" value="3">
                                         <span id="error-row-end"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span>Column starting number</span>
+                                        <label for="ccol_start" class="label">Column start</label>
                                     </td>
                                     <td>
-                                        <input id="col-start" type="number" min="1" required value="5"/>
-                                        <div>
-                                            <span id="error-col-start"></span>
-                                        </div>
+                                        <input name="ccol_start" type="text" id="ccol_start" value="5">
+                                        <span id="error-col-start"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span>Column ending number</span>
+                                        <label for="ccol_end" class="label">Column End end</label>
                                     </td>
                                     <td>
-                                        <input id="col-end" type="number" min="1" required value="7"/>
+                                        <input name="ccol_end" type="text" id="ccol_end" value="7">
                                         <span id="error-col-end"></span>
                                     </td>
                                 </tr>
                             </table>
-                            <input type="submit" value="Calculate table"/>
+                            <input type="submit" name="submit" id="submit" value="Caculate Table">
                         </form>
                     </div>
                     <div id='tabs'>
                         <h3 id="tabs-header">Generated Multiplication Tables:</h3>
                         <ul>
-                            <li><a href='#tab1'>(1 to 3) * (5 to 7)</a></li>
+                            <li tabindex="0"><a href='#tab1'>(1 to 3) * (5 to 7)</a></li>
                         </ul>
                         <div id='tab1'>
                             <div class="multi-table">

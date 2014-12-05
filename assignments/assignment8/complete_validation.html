@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form Fun</title>
+        <link href="../../css/site.css" rel="stylesheet" type="text/css"/>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="../../javascript/jquery.validate.min.js" type="text/javascript"></script>
+        <style>
+
+            #signup label.error {
+              font-size: 0.8em;
+              color: #F00;
+              font-weight: bold;
+              display: block;
+              margin-left: 215px;
+            }
+            #signup  input.error, #signup select.error  {
+              background: #FFA9B8;
+              border: 1px solid red;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function () {
+              $.validator.addMethod('lessThanEqual', function (value, element, param) {
+                return this.optional(element) || parseInt(value) <= parseInt($(param).val());
+              }, "The value {0} must be less than {1}");
+
+              $('#signup').validate({
+                rules: {
+                  crow_start: {
+                    required: true,
+                    digits: true,
+                    lessThanEqual: crow_end
+                  },
+                  crow_end: {
+                    required: true,
+                    digits: true
+                  },
+                  ccol_start: {
+                    required: true,
+                    digits: true,
+                    lessThanEqual: crow_end
+                  },
+                  ccol_end: {
+                    required: true,
+                    digits: true
+                  }
+                  /* holding on to this method as a reference for how to use the equalTo method
+                   * confirm_password: {equalTo: '#password'},
+                   spam: "required"
+                   }, //end rules*/
+                },
+                messages: {
+                  crow_start: {
+                    required: "Please supply the number to start the rows at.",
+                    lessThanEqual: "The starting row number cannot exceed the row ending number."
+                  },
+                  crow_end: {
+                    required: 'Please supply the number for the rows to end at.'
+                  },
+                  ccol_start: {
+                    required: "Please supply the number to start the columns at.",
+                    lessThanEqual: "The starting column number cannot exceed the columns ending number."
+                  },
+                  ccol_end: {
+                    required: 'Please supply the number for the columns to end at.'
+                  }
+                },
+                errorPlacement: function (error, element) {
+                  //error.appendTo("#error-row-start");
+                  console.log("element");
+                  console.log(element);
+                }
+
+              }); // end validate
+            }); // end ready
+        </script>
+    </head>
+    <body>
+        <div class="content">
+            <div class="main">
+                <form action="javascript:void(0);" method="post" name="signup" id="signup">
+                    <div>
+                        <label for="crow_start" class="label">Row start</label>
+                        <input name="crow_start" type="text" id="crow_start">
+                    </div>
+                    <div>
+                        <label for="crow_end" class="label">Row end</label>
+                        <input name="crow_end" type="text" id="crow_end">
+                    </div>
+                    <div>
+                        <label for="ccol_start" class="label">Column start</label>
+                        <input name="ccol_start" type="text" id="ccol_start">
+                    </div>
+                    <div>
+                        <label for="ccol_end" class="label">Column End end</label>
+                        <input name="ccol_end" type="text" id="ccol_end">
+                    </div>
+                    <div>
+                        <input type="submit" name="submit" id="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

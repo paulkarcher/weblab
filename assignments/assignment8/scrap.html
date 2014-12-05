@@ -1,213 +1,87 @@
-<!DOCTYPE html>
-<!--
-Paul Karcher
-paulk460@gmail.com
-November 22, 2014
-Page created as student work for 91.461 GUI Programming I at UMass Lowell
-Description:Assignment 8 page, jquery validation plugin multiplication form project.
--->
-<html lang ="en">
+<html>
     <head>
-        <title>Assignment 8</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="../../css/main.css" rel="stylesheet" type="text/css">
-        <link href="../../css/forms.css" rel="stylesheet" type="text/css">
-        <link rel="shortcut icon" href="../../favicon.ico">
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        <link href="../../css/cmxform.css" rel="stylesheet" type="text/css"/>
-        <link href="../../css/cmxformTemplate.css" rel="stylesheet" type="text/css"/>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="../../javascript/jquery.validate.min.js" type="text/javascript"></script>
-        <script src="../../javascript/additional-methods.min.js" type="text/javascript"></script>
-        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-        <script src="../../javascript/jquery-validation.js" type="text/javascript"></script>
-        <style>
-            #dialog label, #dialog input { display:block; }
-            #dialog label { margin-top: 0.5em; }
-            #dialog input, #dialog textarea { width: 95%; }
-            #tabs { margin-top: 1em; }
-            #tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
-            #add_tab { cursor: pointer; }
-        </style>
+        <meta charset="utf-8">
+        <title>jQuery Validation Plugin Examples</title>
+
+        <!-- Bootstrap CSS used for styling the demo pages-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <!-- Advanced rules -->
+        <form class="form" id="example3">
+            <div class="form-group">
+                <label>Advanced rules</label>
+            </div>
+            <div class="form-group" id="errors2">
+            </div>
+            <div class="form-group">
+                <label for="example3-field1">Field 1 - must be equal to Field 2 value</label>
+                <input type="text" class="form-control" id="example3-field1" name="example3-field1">
+            </div>
+            <div class="form-group">
+                <label for="example3-field2">Field 2</label>
+                <input type="text" class="form-control" id="example3-field2" name="example3-field2">
+            </div>
+            <div class="form-group">
+                <label for="example3-input1">Input 1 - Validate against a custom function</label>
+                <input type="text" class="form-control" id="example3-input1" name="example3-input1">
+            </div>
+            <div class="form-group">
+                <label>At least two options must be checked</label>
+                <br />
+                <input type="checkbox" name="example3-check" id="example3-check1" value="1"> &nbsp;<label for="example3-check1" class="text-normal">First option</label>
+                &nbsp; &nbsp; 
+                <input type="checkbox" name="example3-check" id="example3-check2" value="2"> &nbsp;<label for="example3-check2" class="text-normal">Second option</label>
+                &nbsp; &nbsp; 
+                <input type="checkbox" name="example3-check" id="example3-check3" value="3"> &nbsp;<label for="example3-check3" class="text-normal">Third option</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Load jQuery and jQuery-Validate scripts -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-validate.js"></script>
         <script>
-
-            $(function () {
-              var tabTitle = $("#tab_title"),
-                      tabContent = $("#tab_content"),
-                      tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
-                      tabCounter = 2;
-
-              var tabs = $("#tabs").tabs();
-
-// modal dialog init: custom buttons and a "close" callback resetting the form inside
-              var dialog = $("#dialog").dialog({
-                autoOpen: false,
-                modal: true,
-                buttons: {
-                  Add: function () {
-                    addTab();
-                    $(this).dialog("close");
-                  },
-                  Cancel: function () {
-                    $(this).dialog("close");
-                  }
-                },
-                close: function () {
-                  form[ 0 ].reset();
-                }
-              });
-
-// addTab form: calls addTab function on submit and closes the dialog
-              var form = dialog.find("form").submit(function (event) {
-                addTab();
-                dialog.dialog("close");
-                event.preventDefault();
-              });
-
-// actual addTab function: adds new tab using the input from the form above
-              function addTab() {
-                var label = tabTitle.val() || "Tab " + tabCounter,
-                        id = "tabs-" + tabCounter,
-                        li = $(tabTemplate.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label)),
-                        tabContentHtml = tabContent.val() || "Tab " + tabCounter + " content.";
-
-                tabs.find(".ui-tabs-nav").append(li);
-                tabs.append("<div id='" + id + "'><p>" + tabContentHtml + "</p></div>");
-                tabs.tabs("refresh");
-                tabCounter++;
-              }
-
-// addTab button: just opens the dialog
-              $("#add_tab")
-                      .button()
-                      .click(function () {
-                        dialog.dialog("open");
-                      });
-
-// close icon: removing the tab on click
-              tabs.delegate("span.ui-icon-close", "click", function () {
-                var panelId = $(this).closest("li").remove().attr("aria-controls");
-                $("#" + panelId).remove();
-                tabs.tabs("refresh");
-              });
-
-              tabs.bind("keyup", function (event) {
-                if (event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE) {
-                  var panelId = tabs.find(".ui-tabs-active").remove().attr("aria-controls");
-                  $("#" + panelId).remove();
-                  tabs.tabs("refresh");
-                }
-              });
+            // When the document is ready
+            $(document).ready(function () {
+                
+                //validation rules
+                $("#example3").validate({
+                    onkeyup: false,
+                    onfocusout: false,
+                    errorElement: "div",
+                    errorPlacement: function(error, element) {
+                        error.appendTo("div#errors2");
+                    }, 
+                    rules: {
+                        "example3-field1" : {
+                            required : true,
+                            equalTo: "#example3-field2"
+                        },
+                        "example3-input1" : "customFunction",
+                        "example3-check": {
+                            required : true,
+                            minlength: 2
+                        }
+                    },
+                    messages: {
+                        "example3-field1": {
+                            required: "You must enter a Field 1 value",
+                            equalTo: "Field 1 must be equal to Field 2"
+                        },  
+                        "example3-check": {
+                            required: "You must choose some options",
+                            minlength: "You must choose at least 2 options"
+                        } 
+                    }
+                });
+                $.validator.addMethod("customFunction", function(value) {
+                    return value === "input";
+                }, 'Please enter "input"!'); 
+                
             });
         </script>
-    </head>
-    <body>
-        <!-- navigation placeholder class, used as a main menu at top of page. -->
-        <div class="navigation">
-            <a href="../../">Home</a> |
-            <a href="../../assignments.html">Assignments</a>
-        </div>
-        <!-- content class used for padding and placeholder -->
-        <div class="wrapper">
-            <div class="banner">Paul Karcher's Weblab Site</div>
-            <div class="left-pane-wrapper">
-                <div class="left-pane">
-                    <div class="sidebar-item"><a href="../index.html">Assignment 1</a></div>
-                    <div class="sidebar-item"><a href="../../assignments.html">Assignment 2</a></div>
-                    <div class="sidebar-item"><a href="../../assignments.html">Assignment 3</a></div>
-                    <div class="sidebar-item"><a href="http://paulkarcher.github.io/GUI/">Assignment 4</a></div>
-                    <div class="sidebar-item"><a href="../assignment5/assignment5.html">Assignment 5</a></div>
-                    <div class="sidebar-item"><a href="../assignment6/assignment6.html">Assignment 6</a></div>
-                    <div class="sidebar-item"><a href="../assignment7/assignment7.html">Assignment 7</a></div>
-                    <div class="sidebar-item">Assignment 8(Current Page)</div>
-                </div>
-            </div>
-
-
-
-            <div class="main-pane">
-                <div class="content">
-                    <form class="cmxform" id="mult-form" method="get" action="">
-                        <!-- Table used to organize and align the form inputs -->
-                        <table class="form-input">
-                            <tr>
-                                <td>
-                                    <label for="crow_start">Name (required, at least 2 characters)</label>
-                                </td>
-                                <td>
-                                    <input id="crow_start" name="crow-start" value="1" required/>
-                                    <div>
-                                        <span id="error_row_start"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Row ending number</span>
-                                </td>
-                                <td>
-                                    <input id="row-end" type="number" min="1" required value="3"/>
-                                    <span id="error-row-end"></span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Column starting number</span>
-                                </td>
-                                <td>
-                                    <input id="col-start" type="number" min="1" required value="5"/>
-                                    <div>
-                                        <span id="error-col-start"></span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Column ending number</span>
-                                </td>
-                                <td>
-                                    <input id="col-end" type="number" min="1" required value="7"/>
-                                    <span id="error-col-end"></span>
-                                </td>
-                            </tr>
-                        </table>
-                        <input type="submit"/>
-                    </form>
-                    <!-- Example table to demonstrate what a correct multiplication will look like -->
-                    <div id="multi-table">
-                        <table>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>5</td>
-                                <td>6</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>10</td>
-                                <td>12</td>
-                                <td>14</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>15</td>
-                                <td>18</td>
-                                <td>21</td>
-                            </tr>
-                        </table>
-                        <span>(Example table)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </body>
 </html>
-
-
