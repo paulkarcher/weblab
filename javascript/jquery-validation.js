@@ -64,14 +64,7 @@ $(document).ready(function () {
       }
     },
     errorPlacement: function (error, element) {
-      console.log("element");
-      console.log(element);
-      console.log("error");
-      console.log(error);
-      element.toString();
-      error.appendTo($(element).next());
-      console.log("next");
-      console.log($(element).next());
+      error.appendTo(element.next());
     },
     submitHandler: function () {
       success: {
