@@ -17,7 +17,7 @@ Description:
 
 }
 
-.dynamic-table tr:nth-child(1) {
+th {
     background: lightblue;
     font-weight: bold;
 }
