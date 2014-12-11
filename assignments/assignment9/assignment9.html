@@ -37,11 +37,11 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         </div>
         <table class="dynamic-table">
             <tr>
-                <th ng-click="sortField = 'track.artist.name';
+                <th class="category" ng-click="sortField = 'track.artist.name';
                         reverse = !reverse">Artist</th>
-                <th ng-click="sortField = 'track.name';
+                    <th class="category" ng-click="sortField = 'track.name';
                         reverse = !reverse">Song</th>
-                <th ng-if="includeDateBookmarked">Date bookmarked</th>
+                    <th class="category" ng-if="includeDateBookmarked">Date bookmarked</th>
             </tr>
             <tr ng-repeat="song in library| filter:query | orderBy:sortField:reverse">
                 <td><a href="http://musicbrainz.org/artist/{{song.track.artist.mbid}}">{{song.track.artist.name}}</a></td>
