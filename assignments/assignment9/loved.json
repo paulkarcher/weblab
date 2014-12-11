@@ -6327,44 +6327,6 @@
     }
   }, {
     "timestamp": {
-      "iso": "2012-05-06T20:32:37",
-      "unixtimestamp": 1336336357
-    },
-    "track": {
-      "name": "Salammbô part 1",
-      "artist": {
-        "name": "Wapassou",
-        "mbid": "4c49d79d-9b9f-436d-932e-f12d4c3d0a2e"
-      }
-    },
-    "uncorrectedTrack": {
-      "name": "Salammbô part 1",
-      "artist": {
-        "name": "Wapassou",
-        "mbid": "4c49d79d-9b9f-436d-932e-f12d4c3d0a2e"
-      }
-    }
-  }, {
-    "timestamp": {
-      "iso": "2012-05-06T20:32:39",
-      "unixtimestamp": 1336336359
-    },
-    "track": {
-      "name": "Salammbô Part 2",
-      "artist": {
-        "name": "Wapassou",
-        "mbid": "4c49d79d-9b9f-436d-932e-f12d4c3d0a2e"
-      }
-    },
-    "uncorrectedTrack": {
-      "name": "Salammbô Part 2",
-      "artist": {
-        "name": "Wapassou",
-        "mbid": "4c49d79d-9b9f-436d-932e-f12d4c3d0a2e"
-      }
-    }
-  }, {
-    "timestamp": {
       "iso": "2012-05-07T04:15:41",
       "unixtimestamp": 1336364141
     },
@@ -7491,25 +7453,6 @@
       "name": "Last Day, Last Breath",
       "artist": {
         "name": "The Polar Dream"
-      }
-    }
-  }, {
-    "timestamp": {
-      "iso": "2012-09-30T04:55:33",
-      "unixtimestamp": 1348980933
-    },
-    "track": {
-      "name": "До ближайшего солнца",
-      "artist": {
-        "name": "Язык Дождя",
-        "mbid": "53adb42e-adf2-4f0b-90f3-3f5c32098433"
-      }
-    },
-    "uncorrectedTrack": {
-      "name": "До ближайшего солнца",
-      "artist": {
-        "name": "Язык Дождя",
-        "mbid": "53adb42e-adf2-4f0b-90f3-3f5c32098433"
       }
     }
   }, {
