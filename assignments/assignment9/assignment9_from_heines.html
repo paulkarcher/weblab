@@ -32,7 +32,7 @@
     var myApp = angular.module( 'SubmissionsApp', [] ) ;
     
     // set a constant to the JSON file path
-    myApp.constant( "jsonUrl", "submissions.json" ) ;
+    myApp.constant( "jsonUrl", "loved.json" ) ;
                                 
     // add business logic to the app controller
     myApp.controller( 'SubmissionsCtrl',
@@ -90,12 +90,12 @@
               // will be false if sorting a new column or last sort was descending
           if ( colNo === 2 ) {
             // this is the Student Name column
-            $scope.sortField = "student_name" ;
+            $scope.sortField = "track.artist" ;
             // the following statement was used in a previous version of this app
             // before adding the orderBy filter to the ng-repeat directive
             //    $scope.jsonData.data.RECORDS.sort( sort_by( "student_name", boolSortAscending ) ) ;
           } else if ( colNo === 3 ) {
-            $scope.sortField = "student_address | upToAtSign" ;
+            $scope.sortField = "" ;
           } else if ( colNo === 4 ) {
             // this is the Submit Date & Time column
             $scope.sortField = "millisecs" ;
@@ -147,9 +147,9 @@
       <thead>
         <tr>
           <th>#</th>
-          <th ng-click="sortColumn(2)">Student<br>Name</th>
-          <th ng-click="sortColumn(3)">Grading<br>File</th>
-          <th ng-click="sortColumn(4)">Submit<br>Date &amp; Time</th>
+          <th ng-click="sortColumn(2)">Artist<br>Name</th>
+          <th ng-click="sortColumn(3)">Song<br>File</th>
+          <th ng-click="sortColumn(4)">Date</th>
           <th>Submit<br>Link</th>
           <th>Student<br>Comments</th>
         </tr>
@@ -165,13 +165,13 @@
           <td>{{$index | increment}}</td>
           
           <!-- the student's first and last names only, in LastName, FirstName format -->
-          <td>{{oneSubmit.student_name | firstLastOnly}}</td>
+          <td>{{oneSubmit.track.artist}}</td>
           
           <!-- 
             The student's grading file name is the part of his or her up to the @ sign
             followed by ".txt".
           -->
-          <td>{{oneSubmit.student_address | upToAtSign}}.txt</td>
+          <td>{{oneSubmit.track.name | upToAtSign}}.txt</td>
           
           <!-- FORMATTING THE SUBMISSION DATE -->
           <!-- 
@@ -192,7 +192,7 @@
             However, given that we have the number of milliseconds that the time stamp
             represents, we can use the built-in AngularJS date filter on that.
           -->
-          <td>{{oneSubmit.millisecs | date:"MMM d h:mm a"}}</td>
+          <td>{{"timestamp.date"}}</td>
 
           <!-- MAKING THE SUBMITTED URL A LIVE, CLICKABLE LINK -->
           <td><a href="{{oneSubmit.student_url}}" target="_blank">URL</a></td>
