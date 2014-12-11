@@ -26,3 +26,7 @@ Description:
     background: yellow;
     font-weight: bold;
 }
+
+.static-category {
+  background: blue;
+}
