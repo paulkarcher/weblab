@@ -6,8 +6,10 @@
  * Description: javascript used to validate form input using the jquery validation plugin
  */
 
-$(document).ready(function () {
+$(document).ready(function ()
+{
   $("div#tabs").tabs();
+  bindCloseTab();
 
   /*
    jQuery.validator.setDefaults({
@@ -18,7 +20,8 @@ $(document).ready(function () {
 
   /* http://stackoverflow.com/questions/1260984/jquery-validate-less-than */
 
-  $.validator.addMethod('lessThanEqual', function (value, element, param) {
+  $.validator.addMethod('lessThanEqual', function (value, element, param)
+  {
     return this.optional(element) || parseInt(value) <= parseInt($(param).val());
   }, "The value {0} must be less than {1}");
 
@@ -82,12 +85,12 @@ function addTab() {
           "<li><a href='#tab" + num_tabs + "'>(" + parseInt($("#crow_start").val()) +
           " to " + parseInt($("#crow_end").val()) + ") * (" +
           parseInt($("#ccol_start").val()) + " to " + parseInt($("#ccol_end").val()) +
-          ")</a></li>");
+          ")</a><span class='ui-icon ui-icon-circle-close ui-closable-tab'></span></li>");
 
   $("div#tabs").append(
           "<div id='tab" + num_tabs + "'>#" + num_tabs + "</div>");
 
-  $("div#tabs").tabs("refresh");
+  bindCloseTab();
 }
 
 function getTabsLength() {
@@ -154,16 +157,25 @@ function createTable(tabsLength) {
   $("#tab" + tabsLength).html(strContent);
 }
 
-
-
-
+function bindCloseTab()
+{
+  $(".ui-icon-circle-close").on("click", function () {
+    /* taken from http://jqueryui.com/tabs/#manipulation */
+     var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
+      $( "#" + panelId ).remove();
+  });
+  $("div#tabs").tabs("refresh");
+}
 
 function analyseInput()
 {
-  $("#mult-form").submit(function (event) {
+  $("#mult-form").submit(function (event)
+  {
   });
   addTab();
   createTable(getTabsLength());
+
+
 
   /*must remove because jquery validation does this already */
   //event.preventDefault();

@@ -8,35 +8,39 @@ Description:Stylesheet for html5 forms
 
 
 #mult-form {
-    /*border: solid black 1px;*/
-    padding-left: 5px;
-    padding-right: 5px;
+  /*border: solid black 1px;*/
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .multi-table td {
-    text-align: center;
+  text-align: center;
 }
 
 /*  */
 .form-input {
-    padding-bottom: 5px;
-    padding-top: 5px;
-    width: 400px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  width: 400px;
 }
 
 /* make the error messages red and wrap the text */
 span[id^="error"] {
-    color: red;
-    word-wrap: break-word;
+  color: red;
+  word-wrap: break-word;
 }
 
 /* red border highlight for incorrect form inputs */
 .error {
-    border: 1px solid red;
+  border: 1px solid red;
 }
 
 /* used to style the tables initial multiplicands (inputted form values) */
 .multi-table tr:nth-child(1), .multi-table td:nth-child(1) {
-    background: lightblue;
-    font-weight: bold;
+  background: lightblue;
+  font-weight: bold;
+}
+
+.ui-icon-circle-close {
+  cursor:pointer;
 }
