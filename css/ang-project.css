@@ -3,16 +3,14 @@ Paul Karcher
 paulk460@gmail.com
 Dec 10, 2014
 Page created as student work for 91.461 GUI Programming I at UMass Lowell
-Description:
-*/
-/* 
-    Created on : Dec 10, 2014, 10:39:50 PM
-    Author     : otis
+Description: used to style the angular assignment 9 application
 */
 
+/* placeholder] */
 #searchBar {
 
 }
+/* placeholder] */
 #options {
 
 }
@@ -29,4 +27,9 @@ th {
 
 .static-category {
   background: blue;
+}
+
+/* table will fill the page's width automatically' */
+.dynamic-table {
+  width: 100%;
 }
