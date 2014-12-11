@@ -1,5 +1,5 @@
 <!-- Code is heavily based on example #31 from Curran Kelleher's screencast introToAngular
-http://curran.github.io/screencasts/introToAngular/exampleViewer/#/31 
+http://curran.github.io/screencasts/introToAngular/exampleViewer/#/31
 Format and structure adapted from Professor Heines' starter code
 https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-Starter/jmh-assn09-v4.html
 -->
@@ -11,10 +11,17 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         <script>
             var libraryApp = angular.module('LibraryApp', []);
             libraryApp.controller('LibraryCtrl', function ($scope, $http) {
-              $http.get('loved.json').success(function (data) {
-                $scope.library = data;
-              });
+                //adapted with different variable names from starter code
+              $scope.library = {};              // initialize an object in the model's scope
+              $http.get('loved.json')                // perform the Ajax call
+                      .success(function (data) {      // execute this function if the Ajax succeeds
+                        $scope.library = data;   // set the model's jsonData.data property to the
+                      })                               //    data returned by the Ajax call
+                      .error(function (error) {      // execute this function if the Ajax fails
+                        $scope.library.error = error; // set the model's jsonData.error property to the
+                      });                             //    error returned by the Ajax call
 
+              //sorted by artist by default
               $scope.sortField = 'track.artist.name';
             });
         </script>
@@ -28,19 +35,19 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         <div id="options">
             Include date bookmarked on last.fm:<input type="checkbox" ng-model="includeDateBookmarked">
         </div>
-        <table>
+        <table class="dynamic-table">
             <tr>
                 <th ng-click="sortField = 'track.artist.name';
                         reverse = !reverse">Artist</th>
                 <th ng-click="sortField = 'track.name';
                         reverse = !reverse">Song</th>
                 <th ng-if="includeDateBookmarked">Date bookmarked</th>
-    </tr>
-    <tr ng-repeat="song in library| filter:query | orderBy:sortField:reverse">
-        <td><a href="http://musicbrainz.org/artist/{{song.track.artist.mbid}}">{{song.track.artist.name}}</a></td>
-        <td><a href="http://musicbrainz.org/recording/{{song.track.mbid}}">{{song.track.name}}</a></td>
-        <td ng-if="includeDateBookmarked">{{song.timestamp.iso}}</td>
-    </tr>
-</table>
-</body>
+            </tr>
+            <tr ng-repeat="song in library| filter:query | orderBy:sortField:reverse">
+                <td><a href="http://musicbrainz.org/artist/{{song.track.artist.mbid}}">{{song.track.artist.name}}</a></td>
+                <td><a href="http://musicbrainz.org/recording/{{song.track.mbid}}">{{song.track.name}}</a></td>
+                <td ng-if="includeDateBookmarked">{{song.timestamp.iso}}</td>
+            </tr>
+        </table>
+    </body>
 </html>
