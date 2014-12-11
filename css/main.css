@@ -33,8 +33,9 @@ table border style changed to look more compact
 */
 table {
   border-style: solid;
+  background: #FFFFFF;
+  border-collapse: collapse;
 }
-
 /*
 increase font size
 add a bit of padding to the bottom to seperate it more clearly from the banner
@@ -128,12 +129,7 @@ overflow to prevent other content from leaving the frame, let browser choose how
   overflow: auto;
 }
 
-/*
-border styles for tables
-*/
-table {
-  border-collapse: collapse;
-}
+
 /*
 style and padding rules for table headers and their borders
 */

@@ -1,0 +1,46 @@
+<!-- Code is heavily based on example #31 from Curran Kelleher's screencast introToAngular
+http://curran.github.io/screencasts/introToAngular/exampleViewer/#/31 
+Format and structure adapted from Professor Heines' starter code
+https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-Starter/jmh-assn09-v4.html
+-->
+<html ng-app="LibraryApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment 9</title>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+        <script>
+            var libraryApp = angular.module('LibraryApp', []);
+            libraryApp.controller('LibraryCtrl', function ($scope, $http) {
+              $http.get('loved.json').success(function (data) {
+                $scope.library = data;
+              });
+
+              $scope.sortField = 'track.artist.name';
+            });
+        </script>
+        <link href="../../css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/ang-project.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body ng-controller="LibraryCtrl">
+        <div id="searchBar">
+            Search:<input ng-model="query" type="text"/>
+        </div>
+        <div id="options">
+            Include date bookmarked on last.fm:<input type="checkbox" ng-model="includeDateBookmarked">
+        </div>
+        <table>
+            <tr>
+                <th><a href="" ng-click="sortField = 'track.artist.name';
+                        reverse = !reverse">Artist</a></th>
+                <th><a href="" ng-click="sortField = 'track.name';
+                        reverse = !reverse">Song</a></th>
+                <th ng-if="includeDateBookmarked">Date bookmarked</th>
+    </tr>
+    <tr ng-repeat="song in library| filter:query | orderBy:sortField:reverse">
+        <td><a href="http://musicbrainz.org/artist/{{song.track.artist.mbid}}">{{song.track.artist.name}}</a></td>
+        <td><a href="http://musicbrainz.org/recording/{{song.track.mbid}}">{{song.track.name}}</a></td>
+        <td ng-if="includeDateBookmarked">{{song.timestamp.iso}}</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<html ng-app="SubmissionsApp">
+<head>
+  <meta charset="utf-8">
+<!--
+  File:  D:\H-Drive\91-461\461-2014-15f\assn09\MySolution\jmh-assn09-v4.html
+  Jesse M. Heines, UMass Lowell Computer Science, heines@cs.uml.edu
+  Copyright (c) 2014 by Jesse M. Heines.  All rights reserved.  May be freely 
+    copied or excerpted for educational purposes with credit to the author.
+  updated by JMH on November 29, 2014 at 3:29 PM
+  
+  Note the need to name the SubmissionsApp in the html ng-app attribute above
+  if we're going to use it in the angular.module function below.
+-->
+  <title>Assignment Submissions</title>
+  
+  <!-- this is version 1.2.27 -->
+  <script src="../../javascript/angular.js" type="text/javascript"></script>
+  
+  <!-- my own collection of utility functions -->
+  <script src="../../javascript/jmh-utilities.js" type="text/javascript"></script>
+  
+  <script>
+    "use strict" ;  // to ensure that all variables are declared before use
+
+    // the number of the last column sorted, initialized to the Student Name column
+    var lastSortColumnNo = 2 ;
+    // a flag indicating whether the last sort was ascending (true) or descending (false)
+    var lastSortDescending = false ;
+    
+    // set up AngularJS module, note that name must be the same as that in the 
+    //    ng-app attribute of the html tag above
+    var myApp = angular.module( 'SubmissionsApp', [] ) ;
+    
+    // set a constant to the JSON file path
+    myApp.constant( "jsonUrl", "submissions.json" ) ;
+                                
+    // add business logic to the app controller
+    myApp.controller( 'SubmissionsCtrl',
+      /** Read JSON data using Ajax - adapted from Pro AngularJS, p. 149.
+       *  @param $scope  the standard AngularJS model scope
+       *  @param $http   the built-in AngularJS http object containing the get function
+       *  @param jsonURL the app constant containing the JSON file path (defined above)
+       */
+      function( $scope, $http, jsonUrl ) {
+        $scope.jsonData = {} ;              // initialize an object in the model's scope
+        $http.get( jsonUrl )                // perform the Ajax call
+          .success( function( data ) {      // execute this function if the Ajax succeeds
+            $scope.jsonData.data = data ;   // set the model's jsonData.data property to the
+          } )                               //    data returned by the Ajax call
+          .error( function( error )  {      // execute this function if the Ajax fails
+            $scope.jsonData.error = error ; // set the model's jsonData.error property to the
+          } ) ;                             //    error returned by the Ajax call
+
+        // the following data is not used in the current version of this app
+        $scope.date = new Date() ;          // get the current date and time
+          // see http://stackoverflow.com/questions/22962468/angularjs-display-current-date
+        
+        // get the creation date and time of the JSON file using an Ajax call to a PHP program
+        $http.get( "getFileCreationTime.php?filepath=" + jsonUrl )
+          .success( function( data ) {
+            // convert the data returned to a JavaScript integer representing the number of
+            //    milliseconds since the epoch (January 1, 1970 00:00:00 Greenich Mean Time)
+            // this integer can then be used with the AngularJS data formatting filter
+            $scope.dataFileCreationDate = (new Date( data )).getTime() ;
+          } )
+          .error( function( error ) {
+            $scope.dataFileCreationDate = error ;
+          } ) ;
+        
+        // set the initial sort field (student name) and sort order (ascending)
+        $scope.sortField = "student_name" ;
+        $scope.sortDescending = false ;
+        
+        // extract the assignment number for the page title
+        $scope.assnNo = jsonUrl.substring( 6, 7 ) ;
+
+        /** 
+         *  Sort column clicked in either ascending or descending order.
+         *  Note that this could also be accomplished using the built-in AngularJS orderBy
+         *    filter and manipulating the sort field and reverse parameters.
+         *  Also note that this code could also have been incorporated into the ng-click 
+         *    directives on the table's th elements, but doing it here gave me more central
+         *    control, and I think that this function makes what's going on clearer and 
+         *    therefore easier to maintain.
+         *  @param colNo the number of the column header clicked
+         */
+        $scope.sortColumn = function( colNo ) {
+          $scope.sortDescending = lastSortColumnNo === colNo && ! lastSortDescending ;
+              // true to sort in descending order, false to sort in ascending order
+              // will be false if sorting a new column or last sort was descending
+          if ( colNo === 2 ) {
+            // this is the Student Name column
+            $scope.sortField = "student_name" ;
+            // the following statement was used in a previous version of this app
+            // before adding the orderBy filter to the ng-repeat directive
+            //    $scope.jsonData.data.RECORDS.sort( sort_by( "student_name", boolSortAscending ) ) ;
+          } else if ( colNo === 3 ) {
+            $scope.sortField = "student_address | upToAtSign" ;
+          } else if ( colNo === 4 ) {
+            // this is the Submit Date & Time column
+            $scope.sortField = "millisecs" ;
+            // the following statement was used in a previous version of this app
+            // before adding the orderBy filter to the ng-repeat directive
+            //    $scope.jsonData.data.RECORDS.sort( sort_by( "millisecs", boolSortAscending ) ) ;
+          }
+          // save the sort paramesters for the next click
+          lastSortDescending = $scope.sortDescending ;
+          lastSortColumnNo = colNo ;
+        }
+      }
+    ) ;
+  </script>
+
+  <!-- filter functions for this app -->
+  <script src="../../javascript/jmh-assn09-filters.js" type="text/javascript"></script>
+  
+  <!-- CSS for this app -->
+  <link href="../../css/jmh-assn09.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+  <!-- the main view, controlled by AngularJS -->
+  <div ng-controller="SubmissionsCtrl">
+
+  <!-- page head and version information -->
+  <h2 id="maintitle">91.461 Assignment No. {{assnNo}} Submissions</h2>
+  <p>Program Version 4.1, updated November 29, 2014 at 3:29 PM</p>
+  
+  <!-- directions -->
+  <p><em>Click either green header row cell to sort the list.</em></p>
+
+    <!-- 
+      show number of records in the JSON data
+        http://stackoverflow.com/questions/19956074/how-can-i-show-a-count-of-rows-from-an-ng-repeat
+      show date and time
+        http://stackoverflow.com/questions/22962468/angularjs-display-current-date
+        https://docs.angularjs.org/api/ng/filter/date 
+    -->
+    <p>
+      {{(jsonData.data.RECORDS).length}} submissions received as of 
+      {{dataFileCreationDate | date:"MMMM d, yyyy"}} at {{dataFileCreationDate | date:"h:mm a"}}.
+    </p>
+    
+    <!-- the table controlled by the AngularJS controller -->
+    <table id="tblSubmissions">
+      <!-- the column heads -->
+      <thead>
+        <tr>
+          <th>#</th>
+          <th ng-click="sortColumn(2)">Student<br>Name</th>
+          <th ng-click="sortColumn(3)">Grading<br>File</th>
+          <th ng-click="sortColumn(4)">Submit<br>Date &amp; Time</th>
+          <th>Submit<br>Link</th>
+          <th>Student<br>Comments</th>
+        </tr>
+      </thead>
+      <!-- 
+        AngularJS template for each row of the table 
+        the ng-model attribute causes the data to be re-rendered when the jsonData changes
+      -->
+      <tbody ng-model="jsonData">
+        <tr ng-repeat="oneSubmit in jsonData.data.RECORDS | orderBy : sortField : sortDescending">
+          
+          <!-- the built-in AngularJS loop index -->
+          <td>{{$index | increment}}</td>
+          
+          <!-- the student's first and last names only, in LastName, FirstName format -->
+          <td>{{oneSubmit.student_name | firstLastOnly}}</td>
+          
+          <!-- 
+            The student's grading file name is the part of his or her up to the @ sign
+            followed by ".txt".
+          -->
+          <td>{{oneSubmit.student_address | upToAtSign}}.txt</td>
+          
+          <!-- FORMATTING THE SUBMISSION DATE -->
+          <!-- 
+            According to:
+              https://docs.angularjs.org/api/ng/filter/date
+            the following statement does not work because the AngularJS date filter needs
+            the date as a Date object, milliseconds (string or number), or various ISO 8601
+            datetime string formats (e.g., yyyy-MM-ddTHH:mm:ss.sssZ and its shorter
+            versions like yyyy-MM-ddTHH:mmZ, yyyy-MM-dd or yyyyMMddTHHmmssZ).
+              <td>{{oneSubmit.timestamp | date:"MMM d"}}</td>
+          -->
+          <!--
+            The following statement uses a custom filter to extract just the month and day
+            from the Java-style data string in the JSON file.
+          -->
+          <!-- <td>{{oneSubmit.timestamp | substring:4:11}}</td> -->
+          <!--
+            However, given that we have the number of milliseconds that the time stamp
+            represents, we can use the built-in AngularJS date filter on that.
+          -->
+          <td>{{oneSubmit.millisecs | date:"MMM d h:mm a"}}</td>
+
+          <!-- MAKING THE SUBMITTED URL A LIVE, CLICKABLE LINK -->
+          <td><a href="{{oneSubmit.student_url}}" target="_blank">URL</a></td>
+          
+          <!-- FORMATTING STUDENT COMMENTS AS TRUE HTML -->
+          <!-- 
+            The following statement outputs HTML without interpretation:
+              <td>{{oneSubmit.comments}}</td> 
+            To interpret the HTML tags in the output, use the syntax below, explained at:
+              http://creative-punch.net/2014/04/preserve-html-text-output-angularjs/
+          -->
+          <td ng-bind-html="oneSubmit.comments | unsafe"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

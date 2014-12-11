@@ -1,0 +1,274 @@
+{
+"RECORDS":[
+{
+"timestamp":"Sat Nov 29 00:15:56 EST 2014",
+"millisecs":1417238156597,
+"student_name":"Arribasplata, Ana C.",
+"assignment_no":8,
+"student_url":"http:\/\/www.cs.uml.edu\/~aarribas\/assign8\/dyntable.html",
+"comments":"Hello:<br>I talked to Professor Heines explaining why I was going to submit this assignment late. I am sorry I hope you understand and Thank you. ",
+"student_address":"ana_arribasplata@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 21:05:29 EST 2014",
+"millisecs":1417053929917,
+"student_name":"Balabhadrapatruni, Virinchi",
+"assignment_no":8,
+"student_url":"http:\/\/balabhv.github.io\/91461-Assignment8",
+"comments":"This single page web application does not pass CSS validation because of the CSS file included with jQuery UI. The site does pass HTML5 validation though.",
+"student_address":"virinchi_balabhadrapatruni@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 16:54:37 EST 2014",
+"millisecs":1417038877585,
+"student_name":"Blanchette, Joshua Michael",
+"assignment_no":8,
+"student_url":"http:\/\/joshb53.github.io\/Assignment8\/",
+"comments":null,
+"student_address":"joshua_blanchette@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 20:54:18 EST 2014",
+"millisecs":1417053258791,
+"student_name":"Caldwell Jr., Gregory James",
+"assignment_no":8,
+"student_url":"http:\/\/devilishgreg.github.io\/Assignment_8\/index.html",
+"comments":"CSS: Validator doesn&rsquo;t like the CSS, for the JQuery Ui Style I chose, I&rsquo;m still working on this assignment : <br>Fixing some functionality and making sure I collect all my points for comments + Syntax. ",
+"student_address":"gregory_caldwell@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 19:01:48 EST 2014",
+"millisecs":1417046508958,
+"student_name":"Chow, Vivien",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~vchow\/assignment8\/",
+"comments":"Please note that the validators did not pass the css of the cupertino theme that I used from jQueryui.com.",
+"student_address":"vivien_chow@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 17:08:46 EST 2014",
+"millisecs":1417039726019,
+"student_name":"Confrey, Shaun James",
+"assignment_no":8,
+"student_url":"http:\/\/sconfrey.github.io\/Mysite\/asm8\/asm8.html",
+"comments":"When Checking the css, the site said there were errors but they were in the jquery-ui css file and not my own css. ",
+"student_address":"shaun_confrey@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 17:30:32 EST 2014",
+"millisecs":1417041032521,
+"student_name":"DiBiasio, Andrew Paul",
+"assignment_no":8,
+"student_url":"http:\/\/andrewdibiasio6.github.io\/assignment_8\/Mult2.html",
+"comments":null,
+"student_address":"andrew_dibiasio@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 21:50:19 EST 2014",
+"millisecs":1417056619799,
+"student_name":"Donald, Robert Thomas",
+"assignment_no":8,
+"student_url":"http:\/\/bdonald25.github.io\/GUI1\/BobbyHTML5Application\/public_html\/FirstWebPage.html#Assignment8",
+"comments":null,
+"student_address":"robert_donald1@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 23:56:42 EST 2014",
+"millisecs":1417064202886,
+"student_name":"Flores, Jose F.",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~jflores\/gui\/assignments\/?file=www%2Fassignments%2F8%2F",
+"comments":null,
+"student_address":"jose.flores.152@gmail.com"
+},
+{
+"timestamp":"Thu Nov 27 16:23:50 EST 2014",
+"millisecs":1417123430512,
+"student_name":"Getchell, Eric Wayne",
+"assignment_no":8,
+"student_url":"http:\/\/thegetch.github.io\/myPage\/",
+"comments":"Sorry for late submission. I lost electricity and couldn&rsquo;t submit it.",
+"student_address":"getchell93@gmail.com"
+},
+{
+"timestamp":"Wed Nov 26 15:16:14 EST 2014",
+"millisecs":1417032974549,
+"student_name":"Glasser, Alexander",
+"assignment_no":8,
+"student_url":"http:\/\/alexglasser.github.io\/as8\/",
+"comments":"If you try to validate this page on the jigsaw CSS3 validator, it will give errors. This is for the jQuery CSS that is hosted by Google, NOT my own CSS. Please take this into consideration.<br><br>There is a small bug with Firefox, which is that the close tab icon shows up in the bottom left rather than the top right. I&rsquo;m triaging the issue right now, but it is so minor that I am choosing to submit regardless.<br><br>This has been tested by a friend of mine who is not so computer savvy, who found many bugs that I patched today. Most of the bugs that were found revolved around closing all of the tabs then generating new ones, which would put the new table in both a new tab and the existing one. This was fixed immediately and works properly now. (Just saying this because I appreciated the comment about having someone try to poke holes in it).",
+"student_address":"alexander_glasser@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 17:56:07 EST 2014",
+"millisecs":1417042567570,
+"student_name":"Jacob, Jared Robert",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~jjacob\/Assignment8\/assignment8.html",
+"comments":"I have done most of the steps the assignment required except i could not get the close button on my individual tabs to work. Sorry if the code is a bit of a mess, but I tried many different things and have the things that didn&rsquo;t work commented out.",
+"student_address":"jaredjacob667@gmail.com"
+},
+{
+"timestamp":"Wed Nov 26 20:05:58 EST 2014",
+"millisecs":1417050358728,
+"student_name":"James, Dalton Mark",
+"assignment_no":8,
+"student_url":"http:\/\/daltonjames.github.io\/Assignment_8\/",
+"comments":null,
+"student_address":"dalton_james@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 23:35:02 EST 2014",
+"millisecs":1417062902284,
+"student_name":"Karcher, Paul M.",
+"assignment_no":8,
+"student_url":"http:\/\/paulkarcher.github.io\/weblab\/assignments\/assignment8\/assignment8.html",
+"comments":null,
+"student_address":"paul_karcher@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 14:08:03 EST 2014",
+"millisecs":1417028883627,
+"student_name":"Kelly, Harrison M.",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~hkelly\/Assignment8\/",
+"comments":"It doesn&rsquo;t pass the css-validator because of some things in &quot;http:\/\/code.jquery.com\/ui\/1.11.2\/themes\/smoothness\/jquery-ui.css&quot;.<br><br>Also, The delete button on the tabs looks weird in Firefox, but it looks perfect in Safari.",
+"student_address":"harrison_kelly@student.uml.edu"
+},
+{
+"timestamp":"Thu Nov 27 20:17:08 EST 2014",
+"millisecs":1417137428814,
+"student_name":"Leedberg, Thomas Scott",
+"assignment_no":8,
+"student_url":"http:\/\/tommyleedberg.github.io\/index.html#\/Assignment8",
+"comments":"I did this entire thing in Angular so it took me a little longer then normal. I know there are some definite things I could do with the rendering to make it cleaner and better but I just ran out of time.",
+"student_address":"xtommy.leedbergx@gmail.com"
+},
+{
+"timestamp":"Sat Nov 29 17:47:02 EST 2014",
+"millisecs":1417301222196,
+"student_name":"Lo, Takyiu",
+"assignment_no":8,
+"student_url":"http:\/\/takyiulo.github.io\/myPage\/as8\/index.html",
+"comments":"i used my assignment 6 and modified from there",
+"student_address":"takyiu_lo@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 20:51:48 EST 2014",
+"millisecs":1417053108521,
+"student_name":"Lordan, David",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~dlordan\/GUI_1_Assignment_8.html",
+"comments":"This CSS for this site does NOT validate properly. This is because of the CSS needed to properly run the jQuery UI tabs widget. ",
+"student_address":"davidlordan@gmail.com"
+},
+{
+"timestamp":"Mon Nov 24 17:02:47 EST 2014",
+"millisecs":1416866567061,
+"student_name":"Marsinelli, Dean Michael",
+"assignment_no":8,
+"student_url":"http:\/\/deanmarsinelli.github.io\/myPage\/#assignment8",
+"comments":"The jquery UI CSS file had some errors, but all the CSS I wrote validated nicely.",
+"student_address":"dean_marsinelli@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 17:41:18 EST 2014",
+"millisecs":1417041678135,
+"student_name":"McGaunn, Ian D.",
+"assignment_no":8,
+"student_url":"http:\/\/imcgaunn.github.io\/mult-table-tabbed",
+"comments":"The actual source of the application can be found in the &rsquo;master&rsquo; branch on github. The content on the &rsquo;gh-pages&rsquo; branch is what the browser will navigate to when you visit the url I submitted. <br><br>the only source that should concern the operation of the web page is in the &rsquo;app&rsquo; directory from the master branch.<br><br>",
+"student_address":"ianmcgaunn@gmail.com"
+},
+{
+"timestamp":"Tue Nov 25 02:25:28 EST 2014",
+"millisecs":1416900328421,
+"student_name":"Meding, Michael U.",
+"assignment_no":8,
+"student_url":"http:\/\/mikemeding.com\/lessons\/lesson7\/lesson7.html",
+"comments":"A few things to mention about this assignment. I have moved to my own domain and am doing my own hosting hence the new url. Additionally, there are some minor issues that I ran out of time to debug for this assignment all of which were non critical. Firstly, when numbers are entered that are valid but cause a range error require re entry. The error for this is detected but the fields must be re entered. Secondly, I wanted to have the form for this assignment contained within a modal. However, I ran into several major bootstrap and jQueryUI conflicts which ultimately made the modal useless.<br>Finally, as opposed to using the standard jQuery validation which we discussed in class I used bootstrapValidate. The libraries are identical except that the HTML classes and methods are bootstrap friendly.<br>",
+"student_address":"mikeymeding@gmail.com"
+},
+{
+"timestamp":"Thu Nov 27 12:07:55 EST 2014",
+"millisecs":1417108075697,
+"student_name":"Patel, Kirtan Vijay",
+"assignment_no":8,
+"student_url":"http:\/\/kirtanpatel91.github.io\/assignment8\/",
+"comments":null,
+"student_address":"kirtan_patel@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 22:30:28 EST 2014",
+"millisecs":1417059028396,
+"student_name":"Smith, Clayton Kane",
+"assignment_no":8,
+"student_url":"http:\/\/claytonsmith.github.io\/jQuery-Validation-and-UI",
+"comments":null,
+"student_address":"cks.jr.cs@gmail.com"
+},
+{
+"timestamp":"Thu Nov 27 00:20:43 EST 2014",
+"millisecs":1417065643401,
+"student_name":"Smith, Ian",
+"assignment_no":8,
+"student_url":"http:\/\/dragon5mith.github.io\/gui-projects\/asn8.html",
+"comments":"for some reason the automatic validation doesn&rsquo;t seem to start until a tab or three has been added.",
+"student_address":"ismithorigami@gmail.com"
+},
+{
+"timestamp":"Wed Nov 26 03:05:38 EST 2014",
+"millisecs":1416989138944,
+"student_name":"Soth, Bunchhieng",
+"assignment_no":8,
+"student_url":"http:\/\/bunchhieng.github.io\/Assignment8\/",
+"comments":"I submitted at 3am in the morning on 11\/27\/2014. Do you consider this to be late submission? <br><br>Thanks<br>Bun",
+"student_address":"bunchhieng_soth@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 19:18:38 EST 2014",
+"millisecs":1417047518672,
+"student_name":"Souza, Susan Koay",
+"assignment_no":8,
+"student_url":"http:\/\/tychelaughs.github.io\/uziHomeworkPages\/index2.html",
+"comments":null,
+"student_address":"sksouza.art@gmail.com"
+},
+{
+"timestamp":"Mon Nov 24 11:39:47 EST 2014",
+"millisecs":1416847187514,
+"student_name":"Stanzione, Nicolas George",
+"assignment_no":8,
+"student_url":"http:\/\/stanzyy.github.io\/GUI8\/",
+"comments":null,
+"student_address":"ngstanzione@gmail.com"
+},
+{
+"timestamp":"Wed Nov 26 22:54:53 EST 2014",
+"millisecs":1417060493890,
+"student_name":"Szekely, Matthew William",
+"assignment_no":8,
+"student_url":"http:\/\/weblab.cs.uml.edu\/~mszekely\/Assignment8.html",
+"comments":"CSS does not validate only because of jQuery UI.",
+"student_address":"matthew_szekely@student.uml.edu"
+},
+{
+"timestamp":"Wed Nov 26 23:53:32 EST 2014",
+"millisecs":1417064012933,
+"student_name":"White, Kyle David",
+"assignment_no":8,
+"student_url":"http:\/\/www.kwhite8933.github.io\/Assignment8",
+"comments":null,
+"student_address":"kyle_white@student.uml.edu"
+},
+{
+"timestamp":"Thu Nov 27 11:36:48 EST 2014",
+"millisecs":1417106208535,
+"student_name":"Wixon, Ian Michael",
+"assignment_no":8,
+"student_url":"http:\/\/iwixon.github.io\/as8\/",
+"comments":null,
+"student_address":"ian_wixon@student.uml.edu"
+}
+]
+}
