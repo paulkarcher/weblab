@@ -7497,25 +7497,6 @@
     }
   }, {
     "timestamp": {
-      "iso": "2012-09-30T06:13:02",
-      "unixtimestamp": 1348985582
-    },
-    "track": {
-      "name": "Something happened on our way home",
-      "artist": {
-        "name": "All shall be well (and all shall be well and all manner of things shall be well)",
-        "mbid": "37585a19-f729-408e-9c80-e0cfd9cb1c83"
-      }
-    },
-    "uncorrectedTrack": {
-      "name": "Something happened on our way home",
-      "artist": {
-        "name": "All shall be well (and all shall be well and all manner of things shall be well)",
-        "mbid": "37585a19-f729-408e-9c80-e0cfd9cb1c83"
-      }
-    }
-  }, {
-    "timestamp": {
       "iso": "2012-09-30T06:38:37",
       "unixtimestamp": 1348987117
     },
