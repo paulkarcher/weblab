@@ -1,4 +1,11 @@
-<!-- Code is heavily based on example #31 from Curran Kelleher's screencast introToAngular
+<!-- 
+Paul Karcher
+paulk460@gmail.com
+Dec 10, 2014
+Page created as student work for 91.461 GUI Programming I at UMass Lowell
+Description: Angular app used to display bookmarked tracks froma a last.fm account
+
+Code is heavily based on example #31 from Curran Kelleher's screencast introToAngular
 http://curran.github.io/screencasts/introToAngular/exampleViewer/#/31
 Format and structure adapted from Professor Heines' starter code
 https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-Starter/jmh-assn09-v4.html
@@ -8,11 +15,11 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         <meta charset="utf-8">
         <title>Assignment 9</title>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
-        
+
         <script>
             var myApp = angular.module('libraryApp', []);
             myApp.controller('libraryCtrl', function ($scope, $http) {
-                //adapted with different variable names from starter code
+              //adapted with different variable names from starter code
               $scope.library = {};              // initialize an object in the model's scope
               $http.get('loved.json')                // perform the Ajax call
                       .success(function (data) {      // execute this function if the Ajax succeeds
@@ -31,6 +38,7 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         <script src="../../javascript/jmh-assn09-filters.js" type="text/javascript"></script>
     </head>
     <body ng-controller="libraryCtrl">
+        <h1 id="banner">Bookmarked songs from last.fm account</h1>
         <div id="searchBar">
             Search:<input ng-model="query" type="text"/>
         </div>
@@ -42,13 +50,13 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
                 <th class="static-category">#</th>
                 <th class="category" ng-click="sortField = 'track.artist.name';
                         reverse = !reverse">Artist</th>
-                    <th class="category" ng-click="sortField = 'track.name';
+                <th class="category" ng-click="sortField = 'track.name';
                         reverse = !reverse">Song</th>
-                    <th class="category" ng-click="sortField = 'track.name';
+                <th class="category" ng-click="sortField = 'track.name';
                         reverse = !reverse">Date bookmarked</th>
             </tr>
             <tr ng-repeat="song in library| filter:query | orderBy:sortField:reverse">
-                <td>{{$index | increment}}</td>
+                <td>{{$index| increment}}</td>
                 <td><a href="http://musicbrainz.org/artist/{{song.track.artist.mbid}}">{{song.track.artist.name}}</a></td>
                 <td><a href="http://musicbrainz.org/recording/{{song.track.mbid}}">{{song.track.name}}</a></td>
                 <td ng-if="!detailedDate">{{song.timestamp.iso.substring(0, 10)}}</td>

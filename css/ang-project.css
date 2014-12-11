@@ -6,6 +6,10 @@ Page created as student work for 91.461 GUI Programming I at UMass Lowell
 Description: used to style the angular assignment 9 application
 */
 
+#banner {
+  text-align: center;
+}
+
 /* placeholder] */
 #searchBar {
 
@@ -16,13 +20,13 @@ Description: used to style the angular assignment 9 application
 }
 
 th {
-    background: lightblue;
-    font-weight: bold;
+  background: lightblue;
+  font-weight: bold;
 }
 
 .category:hover {
-    background: yellow;
-    font-weight: bold;
+  background: yellow;
+  text-decoration: underline;
 }
 
 .static-category {
@@ -32,4 +36,8 @@ th {
 /* table will fill the page's width automatically' */
 .dynamic-table {
   width: 100%;
+}
+
+tr:nth-child(odd) {
+  background: #f2f2f2;   
 }
