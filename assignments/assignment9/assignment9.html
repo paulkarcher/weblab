@@ -1,4 +1,4 @@
-<!-- 
+<!--
 Paul Karcher
 paulk460@gmail.com
 Dec 10, 2014
@@ -18,25 +18,34 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
 
         <script>
+            /*adapted with different variable names from starter code */
             var myApp = angular.module('libraryApp', []);
             myApp.controller('libraryCtrl', function ($scope, $http) {
-              //adapted with different variable names from starter code
-              $scope.library = {};              // initialize an object in the model's scope
-              $http.get('loved.json')                // perform the Ajax call
-                      .success(function (data) {      // execute this function if the Ajax succeeds
-                        $scope.library = data;   // set the model's jsonData.data property to the
-                      })                               //    data returned by the Ajax call
-                      .error(function (error) {      // execute this function if the Ajax fails
-                        $scope.library.error = error; // set the model's jsonData.error property to the
-                      });                             //    error returned by the Ajax call
 
-              //sorted by artist by default
+              /* initialize an object in the model's scope */
+              $scope.library = {};
+              /* perform the Ajax call */
+              $http.get('loved.json')
+                      /* execute this function if the Ajax succeeds */
+                      .success(function (data) {
+                        /* set the model's jsonData.data property to the
+                         * data returned by the Ajax call */
+                        $scope.library = data;
+                      })
+                      /* execute this function if the Ajax fails */
+                      .error(function (error) {
+                        /* set the model's jsonData.error property to the
+                         * error returned by the Ajax call */
+                        $scope.library.error = error;
+                      });
+
+              /* sorted by artist by default */
               $scope.sortField = 'track.artist.name';
             });
         </script>
         <link href="../../css/main.css" rel="stylesheet" type="text/css"/>
         <link href="../../css/ang-project.css" rel="stylesheet" type="text/css"/>
-        
+
         <!-- used for increment and substring operations -->
         <script src="../../javascript/jmh-assn09-filters.js" type="text/javascript"></script>
     </head>
@@ -52,7 +61,7 @@ https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-
         </div>
         <table class="dynamic-table">
             <tr>
-                <!-- create a static category that cannot be interacted with and is there just for aesthetics --> 
+                <!-- create a static category that cannot be interacted with and is there just for aesthetics -->
                 <th class="static-category">#</th>
                 <!-- create sortable categories for the user to interact with based on data their respective data -->
                 <th class="category" ng-click="sortField = 'track.artist.name';

@@ -1,4 +1,13 @@
-/*  File:  D:\H-Drive\public_html\TUES\jmh-assn09-filters.js
+/*
+ * Paul Karcher
+ * paulk460@gmail.com
+ * Dec 10, 2014
+ * Page created as student work for 91.461 GUI Programming I at UMass Lowell
+ * Description: source file taken from:
+ * https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/code/Assn09-Starter/jmh-assn09-filters.js
+ * and was originally created by Jesse M. Heines for GUI Programming I
+
+ *  File:  D:\H-Drive\public_html\TUES\jmh-assn09-filters.js
  *  Jesse M. Heines, UMass Lowell Computer Science, heines@cs.uml.edu
  *  Copyright (c) 2014 by Jesse M. Heines.  All rights reserved.  May be freely 
  *    copied or excerpted for educational purposes with credit to the author.
