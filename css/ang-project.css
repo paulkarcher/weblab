@@ -38,6 +38,7 @@ th {
   width: 100%;
 }
 
+/* make every other table row appear in a very light gray */
 tr:nth-child(odd) {
   background: #f2f2f2;   
 }
