@@ -44,7 +44,7 @@ myApp.filter( "substring", function() {
       // extract and return the desired substring
       return str.substring( start, end ) ;
     }
-  }
+  };
 } ) ;
 
 // given an email address, return the part before the @ sign
@@ -66,7 +66,7 @@ myApp.filter( "upToAtSign", function() {
       // otherwise, return the substring up to but not including the @ sign
       return str.substring( 0, posAt ) ;
     }
-  }
+  };
 } ) ;
 
 // given a string containing HTML tags, return a version of it that displays
@@ -88,7 +88,7 @@ myApp.filter( "unsafe", function( $sce ) {
     else {
       return $sce.trustAsHtml( str ) ;
     }
-  }
+  };
 } ) ;
 
 // add one to the numeric string selected by the AngularJS template
@@ -116,7 +116,7 @@ myApp.filter( "increment", function() {
       // return the incremented number
       return num + inc ;
     }
-  }
+  };
 } ) ;
 
 // extract only the first and last names of a "LastName, FirstName MiddleName" string
@@ -139,5 +139,5 @@ myApp.filter( "firstLastOnly", function() {
     }
     // reconstruct and return the "LastName, FirstName" string
     return strLastName + ", " + strFirstName ;
-  }
+  };
 } ) ;
