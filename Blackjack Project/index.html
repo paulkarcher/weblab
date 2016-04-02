@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+Paul Karcher
+html used for providing an area for the view to post
+the generated information to.
+-->
+<html>
+  <head>
+    <title>SE BlackJack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/simplestorage/0.2.1/simpleStorage.min.js"></script>
+
+    <script src="assets/js/model.js" type="text/javascript"></script>
+    <script src="assets/js/view.js" type="text/javascript"></script>
+    <script src="assets/js/controller.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+    <div>
+      <p>Welcome to Blackjack by Paul Karcher</p>
+
+      <button onclick="play()">New Game</button>
+      <button id="hitHumanButton" hidden onclick="hitHuman()">Hit me!</button>
+      <button id="stayHumanButton" hidden onclick="stayHuman()">Stay</button>
+
+
+
+
+      <div style="border: dotted 1px black" class="winnersWrapper">
+        <h1>Winners:</h1>
+        <div id="winners"></div>
+      </div>
+
+      <div class="handWrapper">
+        <h2>AI #1's Hand</h2>
+        <div id="bot1"></div>
+      </div>
+
+      <div class="handWrapper">
+        <h2>AI #2's Hand</h2>
+        <div id="bot2"></div>
+      </div>
+
+      <div class="handWrapper">
+        <h2>Your Hand</h2>
+        <div id="human"></div>
+      </div>
+
+
+      <div class="handWrapper">
+        <h2>Dealer's Hand</h2>
+        <div id="dealer"></div>
+      </div>
+
+
+
+
+    </div>
+  </body>
+</html>
